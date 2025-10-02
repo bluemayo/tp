@@ -19,30 +19,30 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 * Role: Project Advisor
 
-### Jane Doe
+### Don Koo
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/donkoo24.png" width="200px">
 
-[[github](http://github.com/johndoe)]
+[[github](http://github.com/donkoo24)]
 [[portfolio](team/johndoe.md)]
 
 * Role: Team Lead
 * Responsibilities: UI
 
-### Johnny Doe
+### Gabriel Yap
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/yapitsgabriel.png" width="200px">
 
-[[github](http://github.com/johndoe)] [[portfolio](team/johndoe.md)]
+[[github](http://github.com/yapitsgabriel)] [[portfolio](team/johndoe.md)]
 
 * Role: Developer
 * Responsibilities: Data
 
-### Jean Doe
+### Leonard
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/biscake.png" width="200px">
 
-[[github](http://github.com/johndoe)]
+[[github](http://github.com/biscake)]
 [[portfolio](team/johndoe.md)]
 
 * Role: Developer
@@ -54,6 +54,16 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 [[github](http://github.com/bluemayo)]
 [[portfolio](team/johndoe.md)]
+
+* Role: Developer
+* Responsibilities: UI
+
+### Jonathan Graziano Yang
+
+<img src="images/jongrazi.png.jpg" width="200px">
+
+[[github](http://github.com/jongrazi)]
+[[portfolio](team/jongrazi.md)]
 
 * Role: Developer
 * Responsibilities: UI
