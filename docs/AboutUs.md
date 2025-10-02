@@ -19,7 +19,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 * Role: Project Advisor
 
-### Jane Doe
+### Don Koo
 
 <img src="images/donkoo24.png" width="200px">
 
@@ -47,6 +47,16 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 * Role: Developer
 * Responsibilities: Dev Ops + Threading
+
+### Dylan Tang
+
+<img src="images/bluemayo.png" width="200px">
+
+[[github](http://github.com/bluemayo)]
+[[portfolio](team/johndoe.md)]
+
+* Role: Developer
+* Responsibilities: UI
 
 ### Jonathan Graziano Yang
 
