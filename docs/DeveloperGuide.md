@@ -320,13 +320,22 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 1.  Should work on any _mainstream OS_ as long as it has Java `17` or above installed.
 2.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
 3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+4.  Should work on both 32-bit and 64-bit environments.
+5.  A novice user with minimal technical knowledge should be able to use the core features without requiring external guidance.
+6.  All commands must provide usage examples to aid discovery and learning.
+7.  Search/filter results should be returned within 500ms.
+8.  Adding or editing a contact should complete within 2 seconds, including saving to local.
+9.  The app should not lose data under sudden app closure or power loss.
+10. Development should adhere to the project schedule, ensuring all milestone requirements are met before their deadlines.
 
 *{More to be added}*
 
 ### Glossary
 
 * **Mainstream OS**: Windows, Linux, Unix, MacOS
-* **Private contact detail**: A contact detail that is not meant to be shared with others
+* **Customer**: A contact who interacts with the café as a buyer or loyalty program member.
+* **Supplier**: A contact who provides goods or services to the café (e.g., milk supplier, coffee bean supplier).
+* **Staff**: A contact employed by the café, either full-time or part-time.
 
 --------------------------------------------------------------------------------------------------------------------
 
