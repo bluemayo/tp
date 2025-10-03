@@ -363,7 +363,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Preconditions**: User is at the command prompt.
 
-**Guarantee**: Reinder to contact supplier will be set. 
+**Guarantee**: Reminder to contact supplier will be set. 
 
 **MSS**
 
