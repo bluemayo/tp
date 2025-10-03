@@ -5,26 +5,14 @@ title: About Us
 
 We are a team based in the [School of Computing, National University of Singapore](https://www.comp.nus.edu.sg).
 
-You can reach us at the email `seer[at]comp.nus.edu.sg`
-
 ## Project team
-
-### John Doe
-
-<img src="images/johndoe.png" width="200px">
-
-[[homepage](http://www.comp.nus.edu.sg/~damithch)]
-[[github](https://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
-
-* Role: Project Advisor
 
 ### Don Koo
 
 <img src="images/donkoo24.png" width="200px">
 
 [[github](http://github.com/donkoo24)]
-[[portfolio](team/johndoe.md)]
+[[portfolio](team/don.md)]
 
 * Role: Team Lead
 * Responsibilities: UI
@@ -33,7 +21,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 <img src="images/yapitsgabriel.png" width="200px">
 
-[[github](http://github.com/yapitsgabriel)] [[portfolio](team/johndoe.md)]
+[[github](http://github.com/yapitsgabriel)] [[portfolio](team/gabriel.md)]
 
 * Role: Developer
 * Responsibilities: Data
@@ -43,7 +31,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 <img src="images/biscake.png" width="200px">
 
 [[github](http://github.com/biscake)]
-[[portfolio](team/johndoe.md)]
+[[portfolio](team/leonard.md)]
 
 * Role: Developer
 * Responsibilities: Dev Ops + Threading
@@ -53,7 +41,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 <img src="images/bluemayo.png" width="200px">
 
 [[github](http://github.com/bluemayo)]
-[[portfolio](team/johndoe.md)]
+[[portfolio](team/dylan.md)]
 
 * Role: Developer
 * Responsibilities: UI
