@@ -90,8 +90,7 @@ public class PersonBuilder {
         return this;
     }
 
-    public Person build() {
+    public Person buildCustomer() {
         return new Customer(name, phone, email, address, tags);
     }
-
 }
