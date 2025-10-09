@@ -8,7 +8,6 @@ import java.time.DayOfWeek;
 import java.util.Collections;
 import java.util.EnumSet;
 import java.util.List;
-import java.util.Set;
 
 import seedu.address.model.person.*;
 import seedu.address.model.tag.Tag;
