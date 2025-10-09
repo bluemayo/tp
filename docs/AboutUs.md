@@ -48,7 +48,7 @@ We are a team based in the [School of Computing, National University of Singapor
 
 ### Jonathan Graziano Yang
 
-<img src="images/jongrazi.png.jpg" width="200px">
+<img src="images/jongrazi.png" width="200px">
 
 [[github](http://github.com/jongrazi)]
 [[portfolio](team/jongrazi.md)]
