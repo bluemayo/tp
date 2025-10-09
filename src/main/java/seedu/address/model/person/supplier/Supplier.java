@@ -36,7 +36,7 @@ public class Supplier extends Person {
         requireAllNonNull(name, phone, email, address, tags, items, days);
         this.items = List.copyOf(items);
         this.days = days.clone();
-        this.notes = notes == null ? "" : notes.trim();  
+        this.notes = notes == null ? "" : notes.trim();
     }
 
     /** Unmodifiable view of items supplied. */
