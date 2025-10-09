@@ -2,7 +2,6 @@ package seedu.address.model.person.staff;
 
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
-import java.time.Duration;
 import java.time.LocalDate;
 
 /**
