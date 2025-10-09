@@ -11,6 +11,8 @@ public class Note {
 
     public static final String MESSAGE_CONSTRAINTS = "Notes can take any values";
 
+    private static final int MAX_LENGTH = 200;
+
     public final String value;
 
     /**
@@ -28,7 +30,7 @@ public class Note {
      * Returns true if a given string is a valid note.
      */
     public static boolean isValidNote(String test) {
-        return true;
+        return test.length() <= MAX_LENGTH;
     }
 
     @Override
