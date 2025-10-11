@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 import seedu.address.commons.core.index.Index;
@@ -14,6 +15,7 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
 import seedu.address.model.tag.Tag;
+import seedu.address.logic.commands.ListCommand.Category;
 
 /**
  * Contains utility methods used for parsing strings in the various *Parser classes.
@@ -21,6 +23,7 @@ import seedu.address.model.tag.Tag;
 public class ParserUtil {
 
     public static final String MESSAGE_INVALID_INDEX = "Index is not a non-zero unsigned integer.";
+    public static final String MESSAGE_INVALID_CATEGORY = "Invalid category.";
 
     /**
      * Parses {@code oneBasedIndex} into an {@code Index} and returns it. Leading and trailing whitespaces will be
@@ -120,5 +123,17 @@ public class ParserUtil {
             tagSet.add(parseTag(tagName));
         }
         return tagSet;
+    }
+
+    public static Category parseCategory(String categoryStr) throws ParseException {
+        requireNonNull(categoryStr);
+        String trimmedLowerCaseCategory = categoryStr.trim().toLowerCase();
+        Category category = Category.fromString(trimmedLowerCaseCategory);
+
+        if (category == null) {
+            throw new ParseException(MESSAGE_INVALID_CATEGORY);
+        }
+
+        return category;
     }
 }
