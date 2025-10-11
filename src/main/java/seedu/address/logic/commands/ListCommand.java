@@ -1,17 +1,18 @@
 package seedu.address.logic.commands;
 
-import seedu.address.model.Model;
-import seedu.address.model.person.Person;
-
-import java.util.Map;
-import java.util.function.Predicate;
-
 import static java.util.Objects.requireNonNull;
 
+import java.util.function.Predicate;
+
+import seedu.address.model.Model;
+import seedu.address.model.person.Person;
 /**
  * Lists all persons in the address book to the user.
  */
 public class ListCommand extends Command {
+    /**
+     * Category enum to represent the different categories of persons.
+     */
     public enum Category {
         ALL("all", Model.PREDICATE_SHOW_ALL_PERSONS),
         STAFF("staff", Model.PREDICATE_SHOW_ALL_STAFFS),
@@ -30,6 +31,14 @@ public class ListCommand extends Command {
             return predicate;
         }
 
+        /**
+         * Returns the Category corresponding to the given input string.
+         * The comparison is case-insensitive and ignores leading/trailing whitespace.
+         * If no matching category is found, returns null.
+         *
+         * @param input the input string to match against category keywords
+         * @return the matching Category or null if no match is found
+         */
         public static Category fromString(String input) {
             String trimmedToLowerCaseInput = input.trim().toLowerCase();
             for (Category category : values()) {
@@ -48,6 +57,11 @@ public class ListCommand extends Command {
 
     private final Category category;
 
+    /**
+     * Creates a ListCommand to list all persons in the specified category.
+     *
+     * @param category the category of persons to list
+     */
     public ListCommand(Category category) {
         this.category = category;
     }
