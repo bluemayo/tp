@@ -8,6 +8,12 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
 import seedu.address.model.person.customer.Customer;
 
+/**
+ * Adds a Supplier to the address book.
+ * Format: add customer n/NAME p/PHONE e/EMAIL a/ADDRESS [t/TAG]...
+ * Example:
+ *   add customer n/John Ng p/98765432 e/johnng@example.com a/123 Clementi Ave 3 t/regular
+ */
 public class AddCustomerCommand extends AddCommand {
 
     public static final String COMMAND_WORD = AddCommand.COMMAND_WORD + "_customer";
