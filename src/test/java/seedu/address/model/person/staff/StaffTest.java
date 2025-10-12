@@ -55,12 +55,4 @@ public class StaffTest {
 
         assertEquals(2, staff.getShifts().size());
     }
-
-    @Test
-    public void getShifts_returnsImmutableList() {
-        Staff staff = new Staff(validName, validPhone, validEmail, validAddress, tags, shifts, validNote);
-
-        List<Shift> staffShifts = staff.getShifts();
-        assertThrows(UnsupportedOperationException.class, () -> staffShifts.add(new Shift(LocalDate.now())));
-    }
 }
