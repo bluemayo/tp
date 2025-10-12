@@ -24,7 +24,7 @@ public class AddSupplierCommandParserTest {
     private final AddSupplierCommandParser parser = new AddSupplierCommandParser();
 
     @Test
-    public void parse_success_minimal_requiredOnly() throws Exception {
+    public void parse_success() throws Exception {
         // minimal valid: required fields present; email/address omitted on purpose
         String input = " supplier n/Ah Hock p/98765432 items/Flour,Eggs days/MON,THU";
 
@@ -46,15 +46,11 @@ public class AddSupplierCommandParserTest {
     }
 
     @Test
-    public void parse_failure_missing_required() {
+    public void parse_failure() {
         // missing items/days
         String input = " supplier n/Ah Hock p/98765432";
         assertThrows(ParseException.class, () -> parser.parse(input));
-    }
-
-    @Test
-    public void parse_failure_bad_day() {
-        String input = " supplier n/Ah Hock p/98765432 items/Flour days/MOON";
-        assertThrows(ParseException.class, () -> parser.parse(input));
+        String input2 = " supplier n/Ah Hock p/98765432 items/Flour days/MOON";
+        assertThrows(ParseException.class, () -> parser.parse(input2));
     }
 }
