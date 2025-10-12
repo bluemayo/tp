@@ -10,6 +10,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import java.util.Set;
 import java.util.stream.Stream;
 
+import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.commands.AddCustomerCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Address;
@@ -22,19 +23,23 @@ import seedu.address.model.tag.Tag;
 /**
  * Parses input arguments and creates a new AddCustomerCommand object
  */
-public class AddCustomerCommandParser implements Parser<AddCustomerCommand> {
+public class AddCommandParser implements Parser<AddCommand> {
+
+    private static final String CUSTOMER_TYPE = "customer";
+    private static final String STAFF_TYPE = "staff";
+    private static final String SUPPLIER_TYPE = "supplier";
 
     /**
      * Parses the given {@code String} of arguments in the context of the AddCustomerCommand
      * and returns an AddCustomerCommand object for execution.
      * @throws ParseException if the user input does not conform the expected format
      */
-    public AddCustomerCommand parse(String args) throws ParseException {
+    public AddCommand parse(String args) throws ParseException {
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_TAG);
+        String preamble = argMultimap.getPreamble();
 
-        if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_ADDRESS, PREFIX_PHONE, PREFIX_EMAIL)
-                || !argMultimap.getPreamble().isEmpty()) {
+        if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_ADDRESS, PREFIX_PHONE, PREFIX_EMAIL)) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCustomerCommand.MESSAGE_USAGE));
         }
 
@@ -45,9 +50,18 @@ public class AddCustomerCommandParser implements Parser<AddCustomerCommand> {
         Address address = ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get());
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
 
-        Customer customer = new Customer(name, phone, email, address, tagList);
-
-        return new AddCustomerCommand(customer);
+        if (preamble.equals(CUSTOMER_TYPE)) {
+            Customer customer = new Customer(name, phone, email, address, tagList);
+            return new AddCustomerCommand(customer);
+        } else if (preamble.equals(STAFF_TYPE)) {
+            Customer customer = new Customer(name, phone, email, address, tagList);
+            return new AddCustomerCommand(customer);
+        } else if (preamble.equals(SUPPLIER_TYPE)) {
+            Customer customer = new Customer(name, phone, email, address, tagList);
+            return new AddCustomerCommand(customer);
+        } else {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
+        }
     }
 
     /**
@@ -56,6 +70,10 @@ public class AddCustomerCommandParser implements Parser<AddCustomerCommand> {
      */
     private static boolean arePrefixesPresent(ArgumentMultimap argumentMultimap, Prefix... prefixes) {
         return Stream.of(prefixes).allMatch(prefix -> argumentMultimap.getValue(prefix).isPresent());
+    }
+
+    private boolean isValidType(String input) {
+        return input.equals(CUSTOMER_TYPE) || input.equals(STAFF_TYPE) || input.equals(SUPPLIER_TYPE) ;
     }
 
 }
