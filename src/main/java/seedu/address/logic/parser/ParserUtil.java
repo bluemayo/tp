@@ -13,6 +13,7 @@ import java.util.Set;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
+import seedu.address.logic.commands.ListCommand.Category;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
@@ -27,6 +28,7 @@ import seedu.address.model.tag.Tag;
 public class ParserUtil {
 
     public static final String MESSAGE_INVALID_INDEX = "Index is not a non-zero unsigned integer.";
+    public static final String MESSAGE_INVALID_CATEGORY = "Invalid category.";
 
     /**
      * Parses {@code oneBasedIndex} into an {@code Index} and returns it. Leading and trailing whitespaces will be
@@ -128,6 +130,9 @@ public class ParserUtil {
         return tagSet;
     }
 
+    /**
+     * Parses {@code List<String> shiftStrings} into a {@code List<Shift>}.
+     */
     public static List<Shift> parseShifts(List<String> shiftStrings) throws ParseException {
         if (shiftStrings == null) {
             return List.of();
@@ -148,8 +153,24 @@ public class ParserUtil {
             }
         }
         return shifts;
-
     }
 
+    /**
+     * Parses {@code String categoryStr} into a {@code Category}
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code categoryStr} is invalid
+     */
+    public static Category parseCategory(String categoryStr) throws ParseException {
+        requireNonNull(categoryStr);
+        String trimmedLowerCaseCategory = categoryStr.trim().toLowerCase();
+        Category category = Category.fromString(trimmedLowerCaseCategory);
 
+        if (category == null) {
+            throw new ParseException(MESSAGE_INVALID_CATEGORY);
+        }
+
+        return category;
+    }
+  
 }
