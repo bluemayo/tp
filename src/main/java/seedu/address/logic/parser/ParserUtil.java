@@ -172,5 +172,4 @@ public class ParserUtil {
 
         return category;
     }
-  
 }

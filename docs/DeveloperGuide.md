@@ -291,23 +291,23 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Preconditions**: User is at the command prompt.
 
-**Guarantee**: Current contact will be deleted. 
+**Guarantee**: Current contact will be deleted.
 
 **MSS**
 
-1.  User requests to list contacts.  
+1.  User requests to list contacts.
 2.  BrewBook shows a list of contacts.
-3.  User requests to delete a specific contact in the list. 
-4.  BrewBook deletes the person.  
+3.  User requests to delete a specific contact in the list.
+4.  BrewBook deletes the person.
     Use case ends.
 
 **Extensions**
 
-* 2a. The list is empty.  
+* 2a. The list is empty.
   Use case ends
-* 3a. The given index is invalid. 
-  * 3a1. BrewBook shows an error message and informs the user of the possible valid indices.  
-    Use case resumes at step 2. 
+* 3a. The given index is invalid.
+  * 3a1. BrewBook shows an error message and informs the user of the possible valid indices.
+    Use case resumes at step 2.
 
 **Use case: UC2 - Delete multiple contacts**
 
@@ -320,15 +320,15 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 1.  User requests to list persons.
 2.  BrewBook shows a list of persons.
 3.  User requests to delete multiple contacts in the list.
-4.  BrewBook deletes the contacts.  
+4.  BrewBook deletes the contacts.
     Use case ends.
 
 **Extensions**
 
-* 2a. The list is empty.  
+* 2a. The list is empty.
   Use case ends
 * 3a. The given index range is invalid.
-    * 3a1. BrewBook shows an error message and informs the user of the possible valid indices.  
+    * 3a1. BrewBook shows an error message and informs the user of the possible valid indices.
       Use case resumes at step 2.
 
 **Use case: UC3 - Edit contact**
@@ -342,48 +342,47 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 1.  User requests to list persons.
 2.  BrewBook shows a list of persons.
 3.  User requests to edit a specific person in the list.
-4.  BrewBook edits the person.  
+4.  BrewBook edits the person.
     Use case ends.
 
 **Extensions**
 
-* 2a. The list is empty.  
+* 2a. The list is empty.
   Use case ends
 * 3a. The given index is invalid.
-    * 3a1. BrewBook shows an error message and informs the user of the possible valid indices.  
+    * 3a1. BrewBook shows an error message and informs the user of the possible valid indices.
       Use case resumes at step 2.
-* 3b. The given format is invalid. 
-    * 3b1. BrewBook shows an error message and informs the user of the correct format.  
+* 3b. The given format is invalid.
+    * 3b1. BrewBook shows an error message and informs the user of the correct format.
       Use case resumes at step 2.
 
 **Use case: UC4 - Set reminder to contact supplier**
 
 **Preconditions**: User is at the command prompt.
 
-**Guarantee**: Reminder to contact supplier will be set. 
+**Guarantee**: Reminder to contact supplier will be set.
 
 **MSS**
 
 1.  User requests to list suppliers.
 2.  BrewBook shows a list of suppliers.
 3.  User requests to add a reminder for a specific supplier in the list.
-4.  BrewBook adds the reminder.  
+4.  BrewBook adds the reminder.
     Use case ends.
 
 **Extensions**
 
-* 2a. The list is empty.  
+* 2a. The list is empty.
   Use case ends
 * 3a1. The given index is invalid.
-    * 3a1. BrewBook shows an error message and informs the user of the possible valid indices.  
+    * 3a1. BrewBook shows an error message and informs the user of the possible valid indices.
       Use case resumes at step 2.
 * 3b. The given format is invalid.
-    * 3b1. BrewBook shows an error message and informs the user of the correct format.  
+    * 3b1. BrewBook shows an error message and informs the user of the correct format.
       Use case resumes at step 2.
-* 3c. The given date is invalid. 
-    * 3c1. BrewBook shows an error message and informs the user of the correct date format.  
+* 3c. The given date is invalid.
+    * 3c1. BrewBook shows an error message and informs the user of the correct date format.
       Use case resumes at step 2.
- 
 
 *{More to be added}*
 
