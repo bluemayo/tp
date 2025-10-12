@@ -113,7 +113,9 @@ public class AddSupplierCommandParser implements Parser<AddSupplierCommand> {
         case "SAT": return DayOfWeek.SATURDAY;
         case "SUN": return DayOfWeek.SUNDAY;
         default:
-            try { return DayOfWeek.valueOf(u); }
+            try {
+                return DayOfWeek.valueOf(u);
+            }
             catch (IllegalArgumentException ex) {
                 throw new ParseException("Invalid day");
             }
