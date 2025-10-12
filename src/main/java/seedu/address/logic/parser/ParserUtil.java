@@ -2,8 +2,13 @@ package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 import seedu.address.commons.core.index.Index;
@@ -122,4 +127,29 @@ public class ParserUtil {
         }
         return tagSet;
     }
+
+    public static List<Shift> parseShifts(List<String> shiftStrings) throws ParseException {
+        if (shiftStrings == null) {
+            return List.of();
+        }
+
+        List<Shift> shifts = new ArrayList<>();
+        for (String raw : shiftStrings) {
+            String trimmed = raw.trim();
+            if (trimmed.isEmpty()) {
+                continue;
+            }
+            try {
+                LocalDate date = LocalDate.parse(trimmed);
+                shifts.add(new Shift(date));
+            } catch (DateTimeParseException e) {
+                throw new ParseException("Invalid date format for shift: " + trimmed
+                        + ". Expected format: yyyy-MM-dd");
+            }
+        }
+        return shifts;
+
+    }
+
+
 }
