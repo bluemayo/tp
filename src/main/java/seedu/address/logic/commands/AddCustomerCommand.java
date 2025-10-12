@@ -8,6 +8,11 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
 import seedu.address.model.person.customer.Customer;
 
+/**
+ * Adds a {@link Customer} to the address book.
+ * This command is invoked using the keyword {@code add_customer}, followed by the required
+ * customer details such as name, phone, email, and address. Optional tags may also be provided.
+ */
 public class AddCustomerCommand extends AddCommand {
 
     public static final String COMMAND_WORD = AddCommand.COMMAND_WORD + "_customer";

@@ -26,6 +26,9 @@ import seedu.address.model.person.Phone;
 import seedu.address.model.person.supplier.Supplier;
 import seedu.address.model.tag.Tag;
 
+/**
+ * Parses input arguments and creates a new {@link AddSupplierCommand} object.
+ */
 public class AddSupplierCommandParser implements Parser<AddSupplierCommand> {
 
     @Override
@@ -49,7 +52,7 @@ public class AddSupplierCommandParser implements Parser<AddSupplierCommand> {
         }
 
         // Parse required basics
-        Name name   = ParserUtil.parseName(m.getValue(PREFIX_NAME).orElseThrow());
+        Name name = ParserUtil.parseName(m.getValue(PREFIX_NAME).orElseThrow());
         Phone phone = ParserUtil.parsePhone(m.getValue(PREFIX_PHONE).orElseThrow());
 
         // Optional tags
@@ -60,7 +63,9 @@ public class AddSupplierCommandParser implements Parser<AddSupplierCommand> {
         List<String> items = new ArrayList<>();
         for (String s : itemsRaw.split(",")) {
             String t = s.trim();
-            if (!t.isEmpty()) items.add(t);
+            if (!t.isEmpty()) {
+                items.add(t);
+            }
         }
         if (items.isEmpty()) {
             throw new ParseException("Items list cannot be empty. Provide at least one item via items/<list>.");
@@ -71,7 +76,9 @@ public class AddSupplierCommandParser implements Parser<AddSupplierCommand> {
         EnumSet<DayOfWeek> days = EnumSet.noneOf(DayOfWeek.class);
         for (String s : daysRaw.split(",")) {
             String t = s.trim();
-            if (!t.isEmpty()) days.add(parseDay(t));
+            if (!t.isEmpty()) {
+                days.add(parseDay(t));
+            }
         }
         if (days.isEmpty()) {
             throw new ParseException("Days list cannot be empty. Provide at least one day via days/<list>.");
@@ -82,10 +89,10 @@ public class AddSupplierCommandParser implements Parser<AddSupplierCommand> {
 
         // Email/Address: OPTIONAL in CLI — silently provide safe internals
         // (so Supplier/Person constructor validation passes; they won't be shown in Supplier#toString)
-        String emailRaw   = m.getValue(PREFIX_EMAIL).orElse("na@example.com");
+        String emailRaw = m.getValue(PREFIX_EMAIL).orElse("na@example.com");
         String addressRaw = m.getValue(PREFIX_ADDRESS).orElse("N/A");
-        Email email       = ParserUtil.parseEmail(emailRaw);
-        Address address   = ParserUtil.parseAddress(addressRaw);
+        Email email = ParserUtil.parseEmail(emailRaw);
+        Address address = ParserUtil.parseAddress(addressRaw);
 
         Supplier supplier = new Supplier(name, phone, email, address, tags, items, days, notes);
         return new AddSupplierCommand(supplier);
@@ -98,18 +105,20 @@ public class AddSupplierCommandParser implements Parser<AddSupplierCommand> {
     private DayOfWeek parseDay(String token) throws ParseException {
         String u = token.toUpperCase();
         switch (u) {
-            case "MON": return DayOfWeek.MONDAY;
-            case "TUE": return DayOfWeek.TUESDAY;
-            case "WED": return DayOfWeek.WEDNESDAY;
-            case "THU": return DayOfWeek.THURSDAY;
-            case "FRI": return DayOfWeek.FRIDAY;
-            case "SAT": return DayOfWeek.SATURDAY;
-            case "SUN": return DayOfWeek.SUNDAY;
-            default:
-                try { return DayOfWeek.valueOf(u); }
-                catch (IllegalArgumentException ex) {
-                    throw new ParseException("Invalid day");
-                }
+        case "MON": return DayOfWeek.MONDAY;
+        case "TUE": return DayOfWeek.TUESDAY;
+        case "WED": return DayOfWeek.WEDNESDAY;
+        case "THU": return DayOfWeek.THURSDAY;
+        case "FRI": return DayOfWeek.FRIDAY;
+        case "SAT": return DayOfWeek.SATURDAY;
+        case "SUN": return DayOfWeek.SUNDAY;
+        default:
+            try {
+                return DayOfWeek.valueOf(u);
+            }
+            catch (IllegalArgumentException ex) {
+                throw new ParseException("Invalid day");
+            }
         }
     }
 }

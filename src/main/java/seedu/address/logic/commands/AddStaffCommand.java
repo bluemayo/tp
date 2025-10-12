@@ -1,12 +1,12 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_NOTES;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_SHIFTS;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_NOTES;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_SHIFTS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
 import seedu.address.logic.Messages;
@@ -15,7 +15,7 @@ import seedu.address.model.person.staff.Staff;
 
 /**
  * Adds a Staff to the address book.
- * Command word mirrors the existing pattern ("add <role> …").
+ * Command word mirrors the existing pattern ("add role …").
  * Example:
  *   add staff n/Ah Hock p/98765432 e:ahhock@example.com a/123 Clementi Ave 3 t/preferred
  *   shifts/2025-12-03, 2025-12-04, 2025-12-05 no/can only do weekdays

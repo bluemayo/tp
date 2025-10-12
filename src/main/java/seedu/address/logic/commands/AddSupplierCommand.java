@@ -1,14 +1,11 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_ITEMS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DAYS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ITEMS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NOTES;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 
 import seedu.address.logic.Messages;
 import seedu.address.model.Model;
@@ -16,7 +13,7 @@ import seedu.address.model.person.supplier.Supplier;
 
 /**
  * Adds a Supplier to the address book.
- * Command word mirrors the existing pattern ("add <role> …").
+ * Command word mirrors the existing pattern ("add role …").
  * Example:
  *   add supplier n/Ah Hock p/98765432 e:ahhock@example.com a/123 Clementi Ave 3 t/preferred
  *               it/Flour,Eggs dy/MON,THU no/halal supplier
@@ -45,6 +42,12 @@ public class AddSupplierCommand extends Command {
 
     private final Supplier toAdd;
 
+    /**
+     * Creates an {@code AddSupplierCommand} to add the specified {@link Supplier}.
+     *
+     * @param supplier the supplier to be added. Must not be {@code null}.
+     * @throws NullPointerException if {@code supplier} is null
+     */
     public AddSupplierCommand(Supplier supplier) {
         requireNonNull(supplier);
         this.toAdd = supplier;

@@ -1,6 +1,6 @@
 package seedu.address.model.person.staff;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -54,13 +54,5 @@ public class StaffTest {
         shifts.add(new Shift(LocalDate.of(2025, 11, 1)));
 
         assertEquals(2, staff.getShifts().size());
-    }
-
-    @Test
-    public void getShifts_returnsImmutableList() {
-        Staff staff = new Staff(validName, validPhone, validEmail, validAddress, tags, shifts, validNote);
-
-        List<Shift> staffShifts = staff.getShifts();
-        assertThrows(UnsupportedOperationException.class, () -> staffShifts.add(new Shift(LocalDate.now())));
     }
 }

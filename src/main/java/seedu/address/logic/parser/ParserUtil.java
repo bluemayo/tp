@@ -7,7 +7,6 @@ import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -134,13 +133,14 @@ public class ParserUtil {
      * Parses {@code List<String> shiftStrings} into a {@code List<Shift>}.
      */
     public static List<Shift> parseShifts(List<String> shiftStrings) throws ParseException {
-        if (shiftStrings == null) {
-            return List.of();
+        List<Shift> shifts = new ArrayList<>();
+        if (shiftStrings.isEmpty()) {
+            throw new ParseException(Shift.MESSAGE_COMPULSORY);
         }
 
-        List<Shift> shifts = new ArrayList<>();
-        for (String raw : shiftStrings) {
-            String trimmed = raw.trim();
+        String raw = shiftStrings.get(0);
+        for (String token : raw.split(", ")) {
+            String trimmed = token.trim();
             if (trimmed.isEmpty()) {
                 continue;
             }
@@ -148,11 +148,11 @@ public class ParserUtil {
                 LocalDate date = LocalDate.parse(trimmed);
                 shifts.add(new Shift(date));
             } catch (DateTimeParseException e) {
-                throw new ParseException("Invalid date format for shift: " + trimmed
-                        + ". Expected format: yyyy-MM-dd");
+                throw new ParseException(Shift.MESSAGE_CONSTRAINTS);
             }
         }
         return shifts;
+
     }
 
     /**
@@ -172,5 +172,4 @@ public class ParserUtil {
 
         return category;
     }
-  
 }

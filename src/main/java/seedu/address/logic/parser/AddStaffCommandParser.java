@@ -12,7 +12,6 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import java.util.List;
 import java.util.Set;
 
-import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.commands.AddStaffCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Address;
@@ -24,7 +23,11 @@ import seedu.address.model.person.staff.Shift;
 import seedu.address.model.person.staff.Staff;
 import seedu.address.model.tag.Tag;
 
-public class AddStaffCommandParser implements Parser<AddStaffCommand>{
+
+/**
+ * Parses input arguments and creates a new {@link AddStaffCommand} object.
+ */
+public class AddStaffCommandParser implements Parser<AddStaffCommand> {
 
     @Override
     public AddStaffCommand parse(String userInput) throws ParseException {
@@ -34,10 +37,11 @@ public class AddStaffCommandParser implements Parser<AddStaffCommand>{
 
         if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_ADDRESS, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_SHIFTS)
                 || !argMultimap.getPreamble().isEmpty()) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddStaffCommand.MESSAGE_USAGE));
         }
 
-        argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_SHIFTS);
+        argMultimap.verifyNoDuplicatePrefixesFor(
+                PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_SHIFTS);
         Name name = ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get());
         Phone phone = ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get());
         Email email = ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get());
@@ -45,11 +49,9 @@ public class AddStaffCommandParser implements Parser<AddStaffCommand>{
         List<Shift> shifts = ParserUtil.parseShifts(argMultimap.getAllValues(PREFIX_SHIFTS));
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
         Note notes = new Note(argMultimap.getValue(PREFIX_NOTES).orElse(""));
-
         Staff staff = new Staff(name, phone, email, address, tagList, shifts, notes);
 
         return new AddStaffCommand(staff);
-
     }
 
     private static boolean arePrefixesPresent(ArgumentMultimap argumentMultimap, Prefix... prefixes) {
