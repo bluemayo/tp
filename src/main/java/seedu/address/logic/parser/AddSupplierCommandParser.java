@@ -17,7 +17,6 @@ import java.util.Set;
 import java.util.stream.Stream;
 
 import seedu.address.logic.Messages;
-import seedu.address.logic.commands.AddStaffCommand;
 import seedu.address.logic.commands.AddSupplierCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Address;
@@ -53,7 +52,7 @@ public class AddSupplierCommandParser implements Parser<AddSupplierCommand> {
         }
 
         // Parse required basics
-        Name name   = ParserUtil.parseName(m.getValue(PREFIX_NAME).orElseThrow());
+        Name name = ParserUtil.parseName(m.getValue(PREFIX_NAME).orElseThrow());
         Phone phone = ParserUtil.parsePhone(m.getValue(PREFIX_PHONE).orElseThrow());
 
         // Optional tags

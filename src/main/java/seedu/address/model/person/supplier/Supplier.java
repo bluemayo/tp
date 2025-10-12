@@ -58,13 +58,6 @@ public class Supplier extends Person {
         return Collections.unmodifiableSet(days);
     }
 
-    /**
-     * Returns any additional notes associated with this supplier.
-     */
-    public String getNotes() {
-        return notes;
-    }
-
     @Override
     public String toString() {
         return "Supplier: " + super.toString()
