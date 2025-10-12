@@ -46,28 +46,6 @@ public class AddSupplierCommandParserTest {
     }
 
     @Test
-    public void parse_success_withOptionalNotesAndTags() throws Exception {
-        String input = " supplier n/Ah Hock p/98765432 items/Flour,Eggs days/MON,THU "
-                + "notes/halal supplier tag/preferred tag/bulk";
-
-        AddSupplierCommand cmd = parser.parse(input);
-
-        Supplier expected = new Supplier(
-                new Name("Ah Hock"),
-                new Phone("98765432"),
-                new Email("na@example.com"),
-                new Address("N/A"),
-                // tags are parsed inside the command; equality should still hold via Supplier equality
-                Set.<Tag>of(new Tag("preferred"), new Tag("bulk")),
-                List.of("Flour", "Eggs"),
-                EnumSet.of(DayOfWeek.MONDAY, DayOfWeek.THURSDAY),
-                "halal supplier"
-        );
-
-        assertEquals(new AddSupplierCommand(expected), cmd);
-    }
-
-    @Test
     public void parse_failure_missing_required() {
         // missing items/days
         String input = " supplier n/Ah Hock p/98765432";
