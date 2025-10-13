@@ -18,7 +18,9 @@ import seedu.address.model.tag.Tag;
  */
 public abstract class Person {
 
-    // Type enum
+    /**
+     * Represents the different categories of contacts that can exist in the address book.
+     */
     public enum ContactType {
         SUPPLIER,
         STAFF,

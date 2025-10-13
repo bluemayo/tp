@@ -9,6 +9,9 @@ import java.time.LocalDate;
  * Guarantees: details are present and not null, field values are validated, immutable.
  */
 public class Shift {
+    public static final String MESSAGE_COMPULSORY = "At least one shift must be provided";
+    public static final String MESSAGE_CONSTRAINTS = "Invalid date format for shift, Expected format: yyyy-MM-dd";
+
     private final LocalDate shiftDate;
 
     /**
