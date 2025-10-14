@@ -48,4 +48,9 @@ public class Supplier extends Person {
     public List<Days> getDays() {
         return days;
     }
+
+    @Override
+    public ContactType getDisplayType() {
+        return ContactType.SUPPLIER;
+    }
 }

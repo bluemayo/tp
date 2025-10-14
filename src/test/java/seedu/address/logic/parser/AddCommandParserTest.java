@@ -45,8 +45,8 @@ import seedu.address.model.person.customer.Customer;
 import seedu.address.model.tag.Tag;
 import seedu.address.testutil.PersonBuilder;
 
-public class AddCustomerCommandParserTest {
-    private AddCustomerCommandParser parser = new AddCustomerCommandParser();
+public class AddCommandParserTest {
+    private AddCommandParser parser = new AddCommandParser();
 
     @Test
     public void parse_allFieldsPresent_success() {

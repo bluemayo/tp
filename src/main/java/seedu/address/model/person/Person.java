@@ -8,8 +8,6 @@ import java.util.Objects;
 import java.util.Set;
 
 import seedu.address.commons.util.ToStringBuilder;
-import seedu.address.model.person.customer.Customer;
-import seedu.address.model.person.staff.Staff;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -141,14 +139,5 @@ public abstract class Person {
                 .toString();
     }
 
-    public ContactType getType() {
-        if (this instanceof Customer) {
-            return ContactType.CUSTOMER;
-        } else if (this instanceof Staff) {
-            return ContactType.STAFF;
-        } else {
-            return ContactType.SUPPLIER;
-        }
-    }
-
+    public abstract ContactType getDisplayType();
 }

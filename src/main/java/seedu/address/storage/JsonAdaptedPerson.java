@@ -58,7 +58,7 @@ class JsonAdaptedPerson {
      * Converts a given {@code Person} into this class for Jackson use.
      */
     public JsonAdaptedPerson(Person source) {
-        this.type = source.getType();
+        this.type = source.getDisplayType();
         name = source.getName().fullName;
         phone = source.getPhone().value;
         email = source.getEmail().value;
@@ -123,12 +123,14 @@ class JsonAdaptedPerson {
 
         final Note modelNote = new Note(note);
 
-        if (type == Person.ContactType.CUSTOMER) {
-            return new Customer(modelName, modelPhone, modelEmail, modelAddress, modelTags);
-        } else {
-            return new Customer(modelName, modelPhone, modelEmail, modelAddress, modelTags);
-        }
 
+        switch (type) {
+        case CUSTOMER:
+            return new Customer(modelName, modelPhone, modelEmail, modelAddress, modelTags);
+        // TODO: cases for staff and supplier
+        default:
+            throw new IllegalValueException("Unexpected contact type: " + type);
+        }
     }
 
 }

@@ -21,4 +21,9 @@ public class Customer extends Person {
     public Customer(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
         super(name, phone, email, address, tags);
     }
+
+    @Override
+    public ContactType getDisplayType() {
+        return ContactType.CUSTOMER;
+    }
 }
