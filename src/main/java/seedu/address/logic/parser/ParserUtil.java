@@ -19,6 +19,8 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.staff.Shift;
+import seedu.address.model.person.supplier.Days;
+import seedu.address.model.person.supplier.Items;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -152,8 +154,54 @@ public class ParserUtil {
             }
         }
         return shifts;
-
     }
+
+    public static List<Days> parseDays(List<String> daysStrings) throws ParseException {
+        List<Days> days = new ArrayList<>();
+        if (daysStrings.isEmpty()) {
+            throw new ParseException(Shift.MESSAGE_COMPULSORY);
+        }
+
+        String raw = daysStrings.get(0);
+        for (String token : raw.split(", ")) {
+            String trimmed = token.trim();
+            if (trimmed.isEmpty()) {
+                continue;
+            }
+            try {
+                LocalDate date = LocalDate.parse(trimmed);
+                days.add(new Days(date));
+            } catch (DateTimeParseException e) {
+                throw new ParseException(Shift.MESSAGE_CONSTRAINTS);
+            }
+        }
+        return days;
+    }
+
+    public static List<Items> parseItems(List<String> itemStrings) throws ParseException {
+        List<Items> items = new ArrayList<>();
+        if (itemStrings == null || itemStrings.isEmpty()) {
+            throw new ParseException(Items.MESSAGE_COMPULSORY);
+        }
+
+        String raw = itemStrings.get(0);
+        for (String token : raw.split(", ")) {
+            String trimmed = token.trim();
+            if (trimmed.isEmpty()) {
+                continue;
+            }
+            try {
+                items.add(new Items(trimmed));
+            } catch (IllegalArgumentException e) {
+                throw new ParseException(Items.MESSAGE_CONSTRAINTS);
+            }
+        }
+        if (items.isEmpty()) {
+            throw new ParseException(Items.MESSAGE_COMPULSORY);
+        }
+        return items;
+    }
+
 
     /**
      * Parses {@code String categoryStr} into a {@code Category}

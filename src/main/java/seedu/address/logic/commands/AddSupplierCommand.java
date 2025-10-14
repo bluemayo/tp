@@ -1,10 +1,8 @@
 package seedu.address.logic.commands;
 
-import static seedu.address.logic.parser.CliSyntax.PREFIX_DAYS;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_ITEMS;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_NOTES;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.commands.AddStaffCommand.ROLE_KEYWORD;
+import static seedu.address.logic.parser.CliSyntax.*;
 
 import seedu.address.model.person.supplier.Supplier;
 
@@ -17,27 +15,27 @@ import seedu.address.model.person.supplier.Supplier;
  */
 public class AddSupplierCommand extends AddCommand {
 
-    public static final String COMMAND_WORD = "add";
-    public static final String ROLE_KEYWORD = "supplier";
+    public static final String COMMAND_WORD = AddCommand.COMMAND_WORD + " supplier";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + " " + ROLE_KEYWORD + ": Adds a supplier. "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a supplier to the address book. "
             + "Parameters: "
             + PREFIX_NAME + "NAME "
             + PREFIX_PHONE + "PHONE "
+            + PREFIX_EMAIL + "EMAIL "
+            + PREFIX_ADDRESS + "ADDRESS "
             + PREFIX_ITEMS + "item1[,item2,...] "
             + PREFIX_DAYS + "MON[,TUE,...] "
             + "[" + PREFIX_NOTES + "NOTES]\n"
             + "Example: " + COMMAND_WORD + " " + ROLE_KEYWORD + " "
-            + PREFIX_NAME + "Ah Hock "
+            + PREFIX_NAME + "John Doe "
             + PREFIX_PHONE + "98765432 "
             + PREFIX_ITEMS + "Flour,Eggs "
-            + PREFIX_DAYS + "MON,THU "
-            + PREFIX_NOTES + "halal supplier";
+            + PREFIX_DAYS + "2000-11-11 "
+            + PREFIX_NOTES + "Halal supplier "
+            + PREFIX_TAG + "Coffee bean supplier";
 
     /**
      * Creates an {@code AddSupplierCommand} to add the specified {@link Supplier}.
      */
-    public AddSupplierCommand(Supplier supplier) {
-        super(supplier);
-    }
+    public AddSupplierCommand(Supplier supplier) { super(supplier); }
 }
