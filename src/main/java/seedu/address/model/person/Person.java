@@ -4,10 +4,12 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
 import seedu.address.commons.util.ToStringBuilder;
+import seedu.address.model.person.staff.Shift;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -75,6 +77,8 @@ public abstract class Person {
     public Note getNote() {
         return note;
     }
+
+    public List<Shift> getShifts() { return null; }
 
     /**
      * Returns an immutable tag set, which throws {@code UnsupportedOperationException}

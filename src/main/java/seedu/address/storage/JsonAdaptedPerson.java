@@ -17,6 +17,8 @@ import seedu.address.model.person.Note;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.customer.Customer;
+import seedu.address.model.person.staff.Shift;
+import seedu.address.model.person.staff.Staff;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -33,6 +35,7 @@ class JsonAdaptedPerson {
     private final String address;
     private final List<JsonAdaptedTag> tags = new ArrayList<>();
     private final String note;
+    private final List<JsonAdaptedShift> shifts = new ArrayList<>();
 
     /**
      * Constructs a {@code JsonAdaptedPerson} with the given person details.
@@ -42,6 +45,7 @@ class JsonAdaptedPerson {
                              @JsonProperty("phone") String phone, @JsonProperty("email") String email,
                              @JsonProperty("address") String address,
                              @JsonProperty("tags") List<JsonAdaptedTag> tags,
+                             @JsonProperty("shifts") List<JsonAdaptedShift> shifts,
                              @JsonProperty("note") String note) {
         this.type = type;
         this.name = name;
@@ -52,6 +56,9 @@ class JsonAdaptedPerson {
             this.tags.addAll(tags);
         }
         this.note = note;
+        if (shifts != null) {
+            this.shifts.addAll(shifts);
+        }
     }
 
     /**
@@ -67,6 +74,9 @@ class JsonAdaptedPerson {
         tags.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
+        shifts.addAll(source.getShifts().stream()
+                .map(JsonAdaptedShift::new)
+                .collect(Collectors.toList()));
     }
 
     /**
@@ -76,8 +86,13 @@ class JsonAdaptedPerson {
      */
     public Person toModelType() throws IllegalValueException {
         final List<Tag> personTags = new ArrayList<>();
+        final List<Shift> modelShifts = new ArrayList<>();
         for (JsonAdaptedTag tag : tags) {
             personTags.add(tag.toModelType());
+        }
+
+        for (JsonAdaptedShift shift : shifts) {
+            modelShifts.add(shift.toModelType());
         }
 
         if (name == null) {
@@ -123,11 +138,12 @@ class JsonAdaptedPerson {
 
         final Note modelNote = new Note(note);
 
-
         switch (type) {
         case CUSTOMER:
             return new Customer(modelName, modelPhone, modelEmail, modelAddress, modelTags, modelNote);
         // TODO: cases for staff and supplier
+        case STAFF:
+            return new Staff(modelName, modelPhone, modelEmail, modelAddress, modelTags, modelShifts, modelNote);
         default:
             throw new IllegalValueException("Unexpected contact type: " + type);
         }
