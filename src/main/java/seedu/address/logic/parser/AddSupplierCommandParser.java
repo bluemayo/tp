@@ -115,8 +115,7 @@ public class AddSupplierCommandParser implements Parser<AddSupplierCommand> {
         default:
             try {
                 return DayOfWeek.valueOf(u);
-            }
-            catch (IllegalArgumentException ex) {
+            } catch (IllegalArgumentException ex) {
                 throw new ParseException("Invalid day");
             }
         }

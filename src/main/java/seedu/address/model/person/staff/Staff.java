@@ -32,4 +32,9 @@ public class Staff extends Person {
     public List<Shift> getShifts() {
         return shifts;
     }
+
+    @Override
+    public ContactType getDisplayType() {
+        return ContactType.STAFF;
+    }
 }
