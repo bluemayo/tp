@@ -18,7 +18,7 @@ import seedu.address.model.person.supplier.Supplier;
  *   add supplier n/Ah Hock p/98765432 e/ahhock@example.com a/123 Clementi Ave 3 t/preferred
  *               it/Flour,Eggs dy/MON,THU no/halal supplier
  */
-public class AddSupplierCommand extends Command {
+public class AddSupplierCommand extends AddCommand {
 
     public static final String COMMAND_WORD = "add";
     public static final String ROLE_KEYWORD = "supplier";
@@ -37,38 +37,10 @@ public class AddSupplierCommand extends Command {
             + PREFIX_DAYS + "MON,THU "
             + PREFIX_NOTES + "halal supplier";
 
-    public static final String MESSAGE_SUCCESS = "New supplier added: %1$s";
-    public static final String MESSAGE_DUPLICATE_PERSON = "This supplier already exists in the address book";
-
-    private final Supplier toAdd;
-
     /**
      * Creates an {@code AddSupplierCommand} to add the specified {@link Supplier}.
-     *
-     * @param supplier the supplier to be added. Must not be {@code null}.
-     * @throws NullPointerException if {@code supplier} is null
      */
     public AddSupplierCommand(Supplier supplier) {
-        requireNonNull(supplier);
-        this.toAdd = supplier;
-    }
-
-    @Override
-    public CommandResult execute(Model model) {
-        requireNonNull(model);
-
-        if (model.hasPerson(toAdd)) {
-            return new CommandResult(MESSAGE_DUPLICATE_PERSON);
-        }
-
-        model.addPerson(toAdd);
-        return new CommandResult(String.format(MESSAGE_SUCCESS, Messages.format(toAdd)));
-    }
-
-    @Override
-    public boolean equals(Object other) {
-        return other == this
-                || (other instanceof AddSupplierCommand
-                && toAdd.equals(((AddSupplierCommand) other).toAdd));
+        super(supplier);
     }
 }
