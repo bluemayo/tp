@@ -126,7 +126,7 @@ class JsonAdaptedPerson {
 
         switch (type) {
         case CUSTOMER:
-            return new Customer(modelName, modelPhone, modelEmail, modelAddress, modelTags);
+            return new Customer(modelName, modelPhone, modelEmail, modelAddress, modelTags, modelNote);
         // TODO: cases for staff and supplier
         default:
             throw new IllegalValueException("Unexpected contact type: " + type);
