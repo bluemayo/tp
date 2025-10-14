@@ -41,6 +41,8 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private Label email;
     @FXML
+    private Label note;
+    @FXML
     private FlowPane tags;
 
     /**
@@ -54,13 +56,8 @@ public class PersonCard extends UiPart<Region> {
         phone.setText(person.getPhone().value);
         address.setText(person.getAddress().value);
         email.setText(person.getEmail().value);
-        if (person.getType() == Person.ContactType.CUSTOMER) {
-            type.setText("(Customer)");
-        } else if (person.getType() == Person.ContactType.STAFF) {
-            type.setText("(Staff)");
-        } else {
-            type.setText("(Supplier");
-        }
+        type.setText(person.getDisplayType().toString());
+        note.setText(person.getNote().value);
 
 
         person.getTags().stream()
