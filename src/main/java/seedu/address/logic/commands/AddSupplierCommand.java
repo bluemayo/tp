@@ -4,8 +4,6 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.commands.AddStaffCommand.ROLE_KEYWORD;
 import static seedu.address.logic.parser.CliSyntax.*;
 
-import seedu.address.logic.Messages;
-import seedu.address.model.Model;
 import seedu.address.model.person.supplier.Supplier;
 
 /**
@@ -32,15 +30,12 @@ public class AddSupplierCommand extends AddCommand {
             + PREFIX_NAME + "John Doe "
             + PREFIX_PHONE + "98765432 "
             + PREFIX_ITEMS + "Flour,Eggs "
-            + PREFIX_DAYS + "MON,THU "
+            + PREFIX_DAYS + "2000-11-11 "
             + PREFIX_NOTES + "Halal supplier "
             + PREFIX_TAG + "Coffee bean supplier";
 
     /**
      * Creates an {@code AddSupplierCommand} to add the specified {@link Supplier}.
-     *
-     * @param supplier the supplier to be added. Must not be {@code null}.
-     * @throws NullPointerException if {@code supplier} is null
      */
     public AddSupplierCommand(Supplier supplier) { super(supplier); }
 }
