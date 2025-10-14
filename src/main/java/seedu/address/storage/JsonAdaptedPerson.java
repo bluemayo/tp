@@ -17,6 +17,8 @@ import seedu.address.model.person.Note;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.customer.Customer;
+import seedu.address.model.person.staff.Staff;
+import seedu.address.model.person.supplier.Supplier;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -58,7 +60,7 @@ class JsonAdaptedPerson {
      * Converts a given {@code Person} into this class for Jackson use.
      */
     public JsonAdaptedPerson(Person source) {
-        this.type = source.getType();
+        this.type = source.getDisplayType();
         name = source.getName().fullName;
         phone = source.getPhone().value;
         email = source.getEmail().value;
@@ -123,12 +125,17 @@ class JsonAdaptedPerson {
 
         final Note modelNote = new Note(note);
 
-        if (type == Person.ContactType.CUSTOMER) {
-            return new Customer(modelName, modelPhone, modelEmail, modelAddress, modelTags);
-        } else {
-            return new Customer(modelName, modelPhone, modelEmail, modelAddress, modelTags);
-        }
 
+        switch (type) {
+        case CUSTOMER:
+            return new Customer(modelName, modelPhone, modelEmail, modelAddress, modelTags);
+//        case STAFF:
+//            TODO:
+//        case SUPPLIER:
+//            TODO:
+        default:
+            throw new IllegalValueException("Unexpected contact type: " + type);
+        }
     }
 
 }

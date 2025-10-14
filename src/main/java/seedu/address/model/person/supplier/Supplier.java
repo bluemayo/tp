@@ -66,4 +66,8 @@ public class Supplier extends Person {
                 + (notes.isEmpty() ? "" : "; notes:" + notes);
     }
 
+    @Override
+    public ContactType getDisplayType() {
+        return ContactType.SUPPLIER;
+    }
 }
