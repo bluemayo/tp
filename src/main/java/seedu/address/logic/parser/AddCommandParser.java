@@ -141,7 +141,9 @@ public class AddCommandParser implements Parser<AddCommand> {
         }
 
         // Required: n/, p/, items/, days/
-        if (!arePrefixesPresent(m, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_ITEMS, PREFIX_DAYS)) {
+        if (!arePrefixesPresent(m, PREFIX_NAME, PREFIX_PHONE,
+                PREFIX_EMAIL, PREFIX_ADDRESS,
+                PREFIX_ITEMS, PREFIX_DAYS)) {
             throw new ParseException(String.format(Messages.MESSAGE_INVALID_COMMAND_FORMAT,
                     AddSupplierCommand.MESSAGE_USAGE));
         }
