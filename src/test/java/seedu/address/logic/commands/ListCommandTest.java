@@ -46,4 +46,37 @@ public class ListCommandTest {
                 expectedModel
         );
     }
+
+    @Test
+    public void execute_listIsFilteredStaff_showsStaff() {
+        expectedModel.updateFilteredPersonList(Model.PREDICATE_SHOW_ALL_STAFFS);
+        assertCommandSuccess(
+                new ListCommand(ListCommand.Category.STAFF),
+                model,
+                String.format(ListCommand.MESSAGE_SUCCESS_FORMAT, "staff"),
+                expectedModel
+        );
+    }
+
+    @Test
+    public void execute_listIsFilteredSupplier_showsSupplier() {
+        expectedModel.updateFilteredPersonList(Model.PREDICATE_SHOW_ALL_SUPPLIERS);
+        assertCommandSuccess(
+                new ListCommand(ListCommand.Category.SUPPLIER),
+                model,
+                String.format(ListCommand.MESSAGE_SUCCESS_FORMAT, "supplier"),
+                expectedModel
+        );
+    }
+
+    @Test
+    public void execute_listIsFilteredCustomer_showsCustomer() {
+        expectedModel.updateFilteredPersonList(Model.PREDICATE_SHOW_ALL_CUSTOMERS);
+        assertCommandSuccess(
+                new ListCommand(ListCommand.Category.CUSTOMER),
+                model,
+                String.format(ListCommand.MESSAGE_SUCCESS_FORMAT, "customer"),
+                expectedModel
+        );
+    }
 }
