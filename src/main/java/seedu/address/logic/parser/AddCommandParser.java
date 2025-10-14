@@ -18,7 +18,6 @@ import java.time.DayOfWeek;
 import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Stream;
 
 import seedu.address.logic.Messages;
@@ -35,8 +34,6 @@ import seedu.address.model.person.Phone;
 import seedu.address.model.person.customer.Customer;
 import seedu.address.model.person.staff.Shift;
 import seedu.address.model.person.staff.Staff;
-import seedu.address.model.person.supplier.Supplier;
-import seedu.address.model.tag.Tag;
 
 /**
  * Parses input arguments and creates a new AddCommand object
@@ -50,12 +47,10 @@ public class AddCommandParser implements Parser<AddCommand> {
      * @throws ParseException if the user input does not conform the expected format
      */
     public AddCommand parse(String args) throws ParseException {
-        ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_TAG);
+        String[] words = args.trim().split(" ", 2);
+        String preamble = words[0].trim();
+        System.out.println(preamble);
 
-        argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS,
-                PREFIX_DAYS, PREFIX_ITEMS, PREFIX_NOTES, PREFIX_SHIFTS);
-        String preamble = argMultimap.getPreamble();
         if (!isValidType(preamble)) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
         }
