@@ -20,7 +20,6 @@ public class Supplier extends Person {
 
     private final List<String> items;
     private final EnumSet<DayOfWeek> days;
-    private final String notes;
 
     public Supplier(Name name,
                     Phone phone,
@@ -35,7 +34,6 @@ public class Supplier extends Person {
         requireAllNonNull(name, phone, email, address, tags, items, days);
         this.items = List.copyOf(items);
         this.days = days.clone();
-        this.notes = notes == null ? "" : notes.trim();
     }
 
     /** Unmodifiable view of items supplied. */
@@ -49,16 +47,11 @@ public class Supplier extends Person {
     }
 
     /** Optional notes (may be empty string). */
-    public String getNotes() {
-        return notes;
-    }
 
     @Override
     public String toString() {
         return "Supplier: " + super.toString()
                 + " items:" + items
-                + " days:" + days
-                + (notes.isEmpty() ? "" : "; notes:" + notes);
+                + " days:" + days;
     }
-
 }
