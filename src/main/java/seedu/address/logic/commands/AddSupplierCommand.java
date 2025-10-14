@@ -15,7 +15,7 @@ import seedu.address.model.person.supplier.Supplier;
  * Adds a Supplier to the address book.
  * Command word mirrors the existing pattern ("add role …").
  * Example:
- *   add supplier n/Ah Hock p/98765432 e:ahhock@example.com a/123 Clementi Ave 3 t/preferred
+ *   add supplier n/Ah Hock p/98765432 e/ahhock@example.com a/123 Clementi Ave 3 t/preferred
  *               it/Flour,Eggs dy/MON,THU no/halal supplier
  */
 public class AddSupplierCommand extends Command {
