@@ -56,7 +56,7 @@ public class AddCommandParser implements Parser<AddCommand> {
     }
 
     private boolean isValidType(String input) {
-        return input.equals(CUSTOMER_TYPE) || input.equals(STAFF_TYPE) || input.equals(SUPPLIER_TYPE) ;
+        return input.equals(CUSTOMER_TYPE) || input.equals(STAFF_TYPE) || input.equals(SUPPLIER_TYPE);
     }
 
 }
