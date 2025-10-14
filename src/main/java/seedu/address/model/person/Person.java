@@ -8,8 +8,6 @@ import java.util.Objects;
 import java.util.Set;
 
 import seedu.address.commons.util.ToStringBuilder;
-import seedu.address.model.person.customer.Customer;
-import seedu.address.model.person.staff.Staff;
 import seedu.address.model.tag.Tag;
 
 /**

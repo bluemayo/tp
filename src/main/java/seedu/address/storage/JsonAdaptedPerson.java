@@ -17,8 +17,6 @@ import seedu.address.model.person.Note;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.customer.Customer;
-import seedu.address.model.person.staff.Staff;
-import seedu.address.model.person.supplier.Supplier;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -129,10 +127,7 @@ class JsonAdaptedPerson {
         switch (type) {
         case CUSTOMER:
             return new Customer(modelName, modelPhone, modelEmail, modelAddress, modelTags);
-//        case STAFF:
-//            TODO:
-//        case SUPPLIER:
-//            TODO:
+        // TODO: cases for staff and supplier
         default:
             throw new IllegalValueException("Unexpected contact type: " + type);
         }
