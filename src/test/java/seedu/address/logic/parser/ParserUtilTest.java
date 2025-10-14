@@ -13,6 +13,7 @@ import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 
+import seedu.address.logic.commands.ListCommand.Category;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
@@ -33,6 +34,11 @@ public class ParserUtilTest {
     private static final String VALID_EMAIL = "rachel@example.com";
     private static final String VALID_TAG_1 = "friend";
     private static final String VALID_TAG_2 = "neighbour";
+
+    private static final String VALID_CATEGORY_ALL = "all";
+    private static final String VALID_CATEGORY_STAFF = "staff";
+    private static final String VALID_CATEGORY_SUPPLIER = "supplier";
+    private static final String VALID_CATEGORY_CUSTOMER = "customer";
 
     private static final String WHITESPACE = " \t\r\n";
 
@@ -192,5 +198,67 @@ public class ParserUtilTest {
         Set<Tag> expectedTagSet = new HashSet<Tag>(Arrays.asList(new Tag(VALID_TAG_1), new Tag(VALID_TAG_2)));
 
         assertEquals(expectedTagSet, actualTagSet);
+    }
+
+    @Test
+    public void parseCategory_null_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> ParserUtil.parseCategory(null));
+    }
+
+    @Test
+    public void parseCategory_invalidValue_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parseCategory(INVALID_TAG));
+    }
+
+    @Test
+    public void parseCategory_allCategoryWithoutWhitespace_returnsCategory() throws Exception {
+        Category expectedCategory = Category.ALL;
+        assertEquals(expectedCategory, ParserUtil.parseCategory(VALID_CATEGORY_ALL));
+    }
+
+    @Test
+    public void parseCategory_allCategoryWithWhitespace_returnsTrimmedCategory() throws Exception {
+        String tagWithWhitespace = WHITESPACE + VALID_CATEGORY_ALL + WHITESPACE;
+        Category expectedCategory = Category.ALL;
+        assertEquals(expectedCategory, ParserUtil.parseCategory(tagWithWhitespace));
+    }
+
+    @Test
+    public void parseCategory_supplierCategoryWithoutWhitespace_returnsCategory() throws Exception {
+        Category expectedCategory = Category.SUPPLIER;
+        assertEquals(expectedCategory, ParserUtil.parseCategory(VALID_CATEGORY_SUPPLIER));
+    }
+
+    @Test
+    public void parseCategory_supplierCategoryWithWhitespace_returnsTrimmedCategory() throws Exception {
+        String tagWithWhitespace = WHITESPACE + VALID_CATEGORY_SUPPLIER + WHITESPACE;
+        Category expectedCategory = Category.SUPPLIER;
+        assertEquals(expectedCategory, ParserUtil.parseCategory(tagWithWhitespace));
+    }
+
+    @Test
+    public void parseCategory_staffCategoryWithoutWhitespace_returnsCategory() throws Exception {
+        Category expectedCategory = Category.STAFF;
+        assertEquals(expectedCategory, ParserUtil.parseCategory(VALID_CATEGORY_STAFF));
+    }
+
+    @Test
+    public void parseCategory_staffCategoryWithWhitespace_returnsTrimmedCategory() throws Exception {
+        String tagWithWhitespace = WHITESPACE + VALID_CATEGORY_STAFF + WHITESPACE;
+        Category expectedCategory = Category.STAFF;
+        assertEquals(expectedCategory, ParserUtil.parseCategory(tagWithWhitespace));
+    }
+
+    @Test
+    public void parseCategory_customerCategoryWithoutWhitespace_returnsCategory() throws Exception {
+        Category expectedCategory = Category.CUSTOMER;
+        assertEquals(expectedCategory, ParserUtil.parseCategory(VALID_CATEGORY_CUSTOMER));
+    }
+
+    @Test
+    public void parseCategory_customerCategoryWithWhitespace_returnsTrimmedCategory() throws Exception {
+        String tagWithWhitespace = WHITESPACE + VALID_CATEGORY_CUSTOMER + WHITESPACE;
+        Category expectedCategory = Category.CUSTOMER;
+        assertEquals(expectedCategory, ParserUtil.parseCategory(tagWithWhitespace));
     }
 }
