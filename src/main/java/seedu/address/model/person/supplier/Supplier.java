@@ -2,14 +2,17 @@ package seedu.address.model.person.supplier;
 
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
-import java.util.Set;
-
 import java.time.DayOfWeek;
 import java.util.Collections;
 import java.util.EnumSet;
 import java.util.List;
+import java.util.Set;
 
-import seedu.address.model.person.*;
+import seedu.address.model.person.Address;
+import seedu.address.model.person.Email;
+import seedu.address.model.person.Name;
+import seedu.address.model.person.Person;
+import seedu.address.model.person.Phone;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -21,6 +24,9 @@ public class Supplier extends Person {
     private final List<String> items;
     private final EnumSet<DayOfWeek> days;
 
+    /**
+     * Constructs a Supplier by calling super class constructor and initialise other relevant fields
+     */
     public Supplier(Name name,
                     Phone phone,
                     Email email,
@@ -36,22 +42,34 @@ public class Supplier extends Person {
         this.days = days.clone();
     }
 
-    /** Unmodifiable view of items supplied. */
+    /**
+     * Returns the list of items supplied by this supplier.
+     */
     public List<String> getItems() {
         return Collections.unmodifiableList(items);
     }
 
-    /** Unmodifiable view of delivery days. */
+    /**
+     * Returns the set of days on which this supplier is available.
+     */
     public Set<DayOfWeek> getDays() {
         return Collections.unmodifiableSet(days);
     }
 
+<<<<<<< HEAD
     /** Optional notes (may be empty string). */
 
+=======
+>>>>>>> aeaa1dcc454278214ee67e47b1536b4e0c279f7b
     @Override
     public String toString() {
         return "Supplier: " + super.toString()
                 + " items:" + items
                 + " days:" + days;
     }
+<<<<<<< HEAD
 }
+=======
+
+}
+>>>>>>> aeaa1dcc454278214ee67e47b1536b4e0c279f7b

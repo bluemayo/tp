@@ -8,6 +8,8 @@ import java.util.Objects;
 import java.util.Set;
 
 import seedu.address.commons.util.ToStringBuilder;
+import seedu.address.model.person.customer.Customer;
+import seedu.address.model.person.staff.Staff;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -15,6 +17,15 @@ import seedu.address.model.tag.Tag;
  * Guarantees: details are present and not null, field values are validated, immutable.
  */
 public abstract class Person {
+
+    /**
+     * Represents the different categories of contacts that can exist in the address book.
+     */
+    public enum ContactType {
+        SUPPLIER,
+        STAFF,
+        CUSTOMER
+    }
 
     // Identity fields
     private final Name name;
@@ -128,6 +139,16 @@ public abstract class Person {
                 .add("tags", tags)
                 .add("note", note)
                 .toString();
+    }
+
+    public ContactType getType() {
+        if (this instanceof Customer) {
+            return ContactType.CUSTOMER;
+        } else if (this instanceof Staff) {
+            return ContactType.STAFF;
+        } else {
+            return ContactType.SUPPLIER;
+        }
     }
 
 }

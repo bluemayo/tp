@@ -29,6 +29,8 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private HBox cardPane;
     @FXML
+    private Label type;
+    @FXML
     private Label name;
     @FXML
     private Label id;
@@ -52,6 +54,15 @@ public class PersonCard extends UiPart<Region> {
         phone.setText(person.getPhone().value);
         address.setText(person.getAddress().value);
         email.setText(person.getEmail().value);
+        if (person.getType() == Person.ContactType.CUSTOMER) {
+            type.setText("(Customer)");
+        } else if (person.getType() == Person.ContactType.STAFF) {
+            type.setText("(Staff)");
+        } else {
+            type.setText("(Supplier");
+        }
+
+
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));

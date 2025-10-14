@@ -2,17 +2,23 @@ package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
+import seedu.address.logic.commands.ListCommand.Category;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.staff.Shift;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -21,6 +27,7 @@ import seedu.address.model.tag.Tag;
 public class ParserUtil {
 
     public static final String MESSAGE_INVALID_INDEX = "Index is not a non-zero unsigned integer.";
+    public static final String MESSAGE_INVALID_CATEGORY = "Invalid category.";
 
     /**
      * Parses {@code oneBasedIndex} into an {@code Index} and returns it. Leading and trailing whitespaces will be
@@ -120,5 +127,49 @@ public class ParserUtil {
             tagSet.add(parseTag(tagName));
         }
         return tagSet;
+    }
+
+    /**
+     * Parses {@code List<String> shiftStrings} into a {@code List<Shift>}.
+     */
+    public static List<Shift> parseShifts(List<String> shiftStrings) throws ParseException {
+        List<Shift> shifts = new ArrayList<>();
+        if (shiftStrings.isEmpty()) {
+            throw new ParseException(Shift.MESSAGE_COMPULSORY);
+        }
+
+        String raw = shiftStrings.get(0);
+        for (String token : raw.split(", ")) {
+            String trimmed = token.trim();
+            if (trimmed.isEmpty()) {
+                continue;
+            }
+            try {
+                LocalDate date = LocalDate.parse(trimmed);
+                shifts.add(new Shift(date));
+            } catch (DateTimeParseException e) {
+                throw new ParseException(Shift.MESSAGE_CONSTRAINTS);
+            }
+        }
+        return shifts;
+
+    }
+
+    /**
+     * Parses {@code String categoryStr} into a {@code Category}
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code categoryStr} is invalid
+     */
+    public static Category parseCategory(String categoryStr) throws ParseException {
+        requireNonNull(categoryStr);
+        String trimmedLowerCaseCategory = categoryStr.trim().toLowerCase();
+        Category category = Category.fromString(trimmedLowerCaseCategory);
+
+        if (category == null) {
+            throw new ParseException(MESSAGE_INVALID_CATEGORY);
+        }
+
+        return category;
     }
 }
