@@ -2,6 +2,7 @@ package seedu.address.model.person.staff;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 import seedu.address.model.person.Address;
@@ -24,6 +25,7 @@ public class Staff extends Person {
      */
     public Staff(Name name, Phone phone, Email email, Address address, Set<Tag> tags, List<Shift> shifts, Note notes) {
         super(name, phone, email, address, tags, notes);
+        Objects.requireNonNull(shifts);
         this.shifts = new ArrayList<>(shifts);
     }
 
