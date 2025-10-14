@@ -53,6 +53,8 @@ public class AddCommandParser implements Parser<AddCommand> {
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_TAG);
 
+        argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS,
+                PREFIX_DAYS, PREFIX_ITEMS, PREFIX_NOTES, PREFIX_SHIFTS);
         String preamble = argMultimap.getPreamble();
         if (!isValidType(preamble)) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
@@ -139,7 +141,7 @@ public class AddCommandParser implements Parser<AddCommand> {
         }
 
         // Required: n/, p/, items/, days/
-        if (!arePrefixesPresent(m, PREFIX_NAME, PREFIX_PHONE, PREFIX_ITEMS, PREFIX_DAYS)) {
+        if (!arePrefixesPresent(m, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_ITEMS, PREFIX_DAYS)) {
             throw new ParseException(String.format(Messages.MESSAGE_INVALID_COMMAND_FORMAT,
                     AddSupplierCommand.MESSAGE_USAGE));
         }

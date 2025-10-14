@@ -18,7 +18,7 @@ import seedu.address.model.tag.Tag;
  * Guarantees: details are present and not null, field values are validated, immutable.
  */
 public class Staff extends Person {
-    private List<Shift> shifts = new ArrayList<>();
+    private List<Shift> shifts;
 
     /**
      * Constructs a Staff by calling super class constructor and initialise other relevant fields
