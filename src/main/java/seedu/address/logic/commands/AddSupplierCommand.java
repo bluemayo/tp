@@ -23,13 +23,13 @@ public class AddSupplierCommand extends AddCommand {
             + PREFIX_ADDRESS + "ADDRESS "
             + PREFIX_ITEMS + "item1[,item2,...] "
             + PREFIX_DAYS + "MON[,TUE,...] "
-            + "[" + PREFIX_NOTES + "NOTES]\n"
+            + "[" + PREFIX_NOTE + "NOTES]\n"
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_NAME + "John Doe "
             + PREFIX_PHONE + "98765432 "
             + PREFIX_ITEMS + "Flour,Eggs "
             + PREFIX_DAYS + "2000-11-11 "
-            + PREFIX_NOTES + "Halal supplier "
+            + PREFIX_NOTE + "Halal supplier "
             + PREFIX_TAG + "Coffee bean supplier";
 
     /**
