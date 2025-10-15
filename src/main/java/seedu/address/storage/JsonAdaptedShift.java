@@ -16,6 +16,7 @@ class JsonAdaptedShift {
 
     private final String shiftDate;
 
+
     /**
      * Constructs a {@code JsonAdaptedShift} with the given {@code shiftDate}.
      */
