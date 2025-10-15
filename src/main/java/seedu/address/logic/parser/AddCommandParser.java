@@ -76,10 +76,17 @@ public class AddCommandParser implements Parser<AddCommand> {
         return Stream.of(prefixes).allMatch(prefix -> argumentMultimap.getValue(prefix).isPresent());
     }
 
+    /**
+     * Checks whether the given command input is one of the three valid types.
+     * @param input The command input after "add"
+     */
     private boolean isValidType(String input) {
         return input.equals(CUSTOMER_TYPE) || input.equals(STAFF_TYPE) || input.equals(SUPPLIER_TYPE);
     }
 
+    /**
+     * Parses the add customer command input according to the given arguments.
+     */
     private AddCustomerCommand parseAddCustomerCommand(String args) throws ParseException {
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_TAG);
