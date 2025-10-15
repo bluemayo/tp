@@ -27,37 +27,45 @@ import seedu.address.testutil.EditPersonDescriptorBuilder;
  */
 public class CommandTestUtil {
 
+    // Amy is a Customer
     public static final String VALID_NAME_AMY = "Amy Bee";
-    public static final String VALID_NAME_BOB = "Bob Choo";
-    public static final String VALID_NAME_CHARLIE = "Charlie Dang";
     public static final String VALID_PHONE_AMY = "11111111";
-    public static final String VALID_PHONE_BOB = "22222222";
-    public static final String VALID_PHONE_CHARLIE = "33333333";
     public static final String VALID_EMAIL_AMY = "amy@example.com";
-    public static final String VALID_EMAIL_BOB = "bob@example.com";
-    public static final String VALID_EMAIL_CHARLIE = "charlie@example.com";
     public static final String VALID_ADDRESS_AMY = "Block 312, Amy Street 1";
-    public static final String VALID_ADDRESS_BOB = "Block 123, Bobby Street 3";
-    public static final String VALID_ADDRESS_CHARLIE = "Block 456, Charles Street 5";
     public static final String VALID_TAG_AMY = "frequentCustomer";
     public static final String VALID_TAG_AMY_2 = "prefersDelivery";
-    public static final String VALID_TAG_BOB = "partTime";
-    public static final String VALID_TAG_CHARLIE = "fastDelivery";
     public static final String VALID_NOTE_AMY = "allergic to nuts";
-
     public static final String NAME_DESC_AMY = " " + PREFIX_NAME + VALID_NAME_AMY;
-    public static final String NAME_DESC_BOB = " " + PREFIX_NAME + VALID_NAME_BOB;
     public static final String PHONE_DESC_AMY = " " + PREFIX_PHONE + VALID_PHONE_AMY;
-    public static final String PHONE_DESC_BOB = " " + PREFIX_PHONE + VALID_PHONE_BOB;
     public static final String EMAIL_DESC_AMY = " " + PREFIX_EMAIL + VALID_EMAIL_AMY;
-    public static final String EMAIL_DESC_BOB = " " + PREFIX_EMAIL + VALID_EMAIL_BOB;
     public static final String ADDRESS_DESC_AMY = " " + PREFIX_ADDRESS + VALID_ADDRESS_AMY;
-    public static final String ADDRESS_DESC_BOB = " " + PREFIX_ADDRESS + VALID_ADDRESS_BOB;
     public static final String TAG_DESC_AMY = " " + PREFIX_TAG + VALID_TAG_AMY;
     public static final String TAG_DESC_AMY_2 = " " + PREFIX_TAG + VALID_TAG_AMY_2;
-    public static final String TAG_DESC_BOB = " " + PREFIX_TAG + VALID_TAG_BOB;
-    public static final String TAG_DESC_CHARLIE = " " + PREFIX_TAG + VALID_TAG_CHARLIE;
     public static final String NOTE_DEC_AMY = " " + PREFIX_NOTE + VALID_NOTE_AMY;
+
+    // Bob is a Staff
+    public static final String VALID_NAME_BOB = "Bob Choo";
+    public static final String VALID_PHONE_BOB = "22222222";
+    public static final String VALID_EMAIL_BOB = "bob@example.com";
+    public static final String VALID_ADDRESS_BOB = "Block 123, Bobby Street 3";
+    public static final String VALID_TAG_BOB = "partTime";
+    public static final String NAME_DESC_BOB = " " + PREFIX_NAME + VALID_NAME_BOB;
+    public static final String PHONE_DESC_BOB = " " + PREFIX_PHONE + VALID_PHONE_BOB;
+    public static final String EMAIL_DESC_BOB = " " + PREFIX_EMAIL + VALID_EMAIL_BOB;
+    public static final String ADDRESS_DESC_BOB = " " + PREFIX_ADDRESS + VALID_ADDRESS_BOB;
+    public static final String TAG_DESC_BOB = " " + PREFIX_TAG + VALID_TAG_BOB;
+
+    // Charlie is a Supplier
+    public static final String VALID_NAME_CHARLIE = "Charlie Dang";
+    public static final String VALID_PHONE_CHARLIE = "33333333";
+    public static final String VALID_EMAIL_CHARLIE = "charlie@example.com";
+    public static final String VALID_ADDRESS_CHARLIE = "Block 456, Charles Street 5";
+    public static final String VALID_TAG_CHARLIE = "fastDelivery";
+    public static final String NAME_DESC_CHARLIE = " " + PREFIX_NAME + VALID_NAME_CHARLIE;
+    public static final String PHONE_DESC_CHARLIE = " " + PREFIX_PHONE + VALID_PHONE_CHARLIE;
+    public static final String EMAIL_DESC_CHARLIE = " " + PREFIX_EMAIL + VALID_EMAIL_CHARLIE;
+    public static final String ADDRESS_DESC_CHARLIE = " " + PREFIX_ADDRESS + VALID_ADDRESS_CHARLIE;
+    public static final String TAG_DESC_CHARLIE = " " + PREFIX_TAG + VALID_TAG_CHARLIE;
 
     public static final String INVALID_NAME_DESC = " " + PREFIX_NAME + "James&"; // '&' not allowed in names
     public static final String INVALID_PHONE_DESC = " " + PREFIX_PHONE + "911a"; // 'a' not allowed in phones
