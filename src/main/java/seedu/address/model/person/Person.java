@@ -4,10 +4,12 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
 import seedu.address.commons.util.ToStringBuilder;
+import seedu.address.model.person.staff.Shift;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -20,9 +22,13 @@ public abstract class Person {
      * Represents the different categories of contacts that can exist in the address book.
      */
     public enum ContactType {
-        SUPPLIER,
+        CUSTOMER,
         STAFF,
-        CUSTOMER
+        SUPPLIER;
+
+        public String lowerCase() {
+            return this.toString().toLowerCase();
+        }
     }
 
     // Identity fields
@@ -74,6 +80,10 @@ public abstract class Person {
 
     public Note getNote() {
         return note;
+    }
+
+    public List<Shift> getShifts() {
+        return null;
     }
 
     /**

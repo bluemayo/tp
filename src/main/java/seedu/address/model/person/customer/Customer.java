@@ -5,6 +5,7 @@ import java.util.Set;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
+import seedu.address.model.person.Note;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.tag.Tag;
@@ -18,8 +19,8 @@ public class Customer extends Person {
     /**
      * Constructor that calls super class constructor
      */
-    public Customer(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
-        super(name, phone, email, address, tags);
+    public Customer(Name name, Phone phone, Email email, Address address, Set<Tag> tags, Note note) {
+        super(name, phone, email, address, tags, note);
     }
 
     @Override
