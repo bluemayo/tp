@@ -10,6 +10,8 @@ import java.util.Set;
 
 import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.model.person.staff.Shift;
+import seedu.address.model.person.supplier.Days;
+import seedu.address.model.person.supplier.Items;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -85,6 +87,10 @@ public abstract class Person {
     public List<Shift> getShifts() {
         return null;
     }
+
+    public List<Days> getDays() { return null; }
+
+    public List<Items> getItems() { return null; }
 
     /**
      * Returns an immutable tag set, which throws {@code UnsupportedOperationException}

@@ -37,7 +37,7 @@ public class AddSupplierCommand extends AddCommand {
             + PREFIX_NAME + "John Doe "
             + PREFIX_PHONE + "98765432 "
             + PREFIX_ITEMS + "Flour,Eggs "
-            + PREFIX_DAYS + "MON,THU "
+            + PREFIX_DAYS + "2025-10-10 "
             + PREFIX_NOTE + "Halal supplier "
             + PREFIX_TAG + "Coffee bean supplier";
 

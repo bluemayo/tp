@@ -33,7 +33,7 @@ public class Supplier extends Person {
                     List<Days> days,
                     Note note) {
         super(name, phone, email, address, tags, note);
-        this.items = new ArrayList<Items>();
+        this.items = new ArrayList<>(items);
         this.days = new ArrayList<>(days);
     }
 
@@ -42,6 +42,7 @@ public class Supplier extends Person {
     }
 
     public List<Days> getDays() {
+
         return days;
     }
 
