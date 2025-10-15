@@ -1,6 +1,13 @@
 package seedu.address.logic.commands;
 
-import static seedu.address.logic.parser.CliSyntax.*;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_DAYS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ITEMS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_NOTE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
 import seedu.address.model.person.supplier.Supplier;
 
@@ -35,5 +42,7 @@ public class AddSupplierCommand extends AddCommand {
     /**
      * Creates an {@code AddSupplierCommand} to add the specified {@link Supplier}.
      */
-    public AddSupplierCommand(Supplier supplier) { super(supplier); }
+    public AddSupplierCommand(Supplier supplier) {
+        super(supplier);
+    }
 }

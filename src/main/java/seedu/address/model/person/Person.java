@@ -82,7 +82,9 @@ public abstract class Person {
         return note;
     }
 
-    public List<Shift> getShifts() { return null; }
+    public List<Shift> getShifts() {
+        return null;
+    }
 
     /**
      * Returns an immutable tag set, which throws {@code UnsupportedOperationException}

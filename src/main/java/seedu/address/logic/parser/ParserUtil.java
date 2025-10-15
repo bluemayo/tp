@@ -156,6 +156,9 @@ public class ParserUtil {
         return shifts;
     }
 
+    /**
+     * Parses {@code List<String> daysString} into a {@code List<Days>}.
+     */
     public static List<Days> parseDays(List<String> daysStrings) throws ParseException {
         List<Days> days = new ArrayList<>();
         if (daysStrings.isEmpty()) {
@@ -178,6 +181,9 @@ public class ParserUtil {
         return days;
     }
 
+    /**
+     * Parses {@code List<String> itemStrings} into a {@code List<Items>}.
+     */
     public static List<Items> parseItems(List<String> itemStrings) throws ParseException {
         List<Items> items = new ArrayList<>();
         if (itemStrings == null || itemStrings.isEmpty()) {

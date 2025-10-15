@@ -40,7 +40,8 @@ public class AddressBookParserTest {
     @Test
     public void parseCommand_addCustomer() throws Exception {
         Customer customer = new PersonBuilder().buildCustomer();
-        AddCustomerCommand command = (AddCustomerCommand) parser.parseCommand(PersonUtil.getAddCustomerCommand(customer));
+        AddCustomerCommand command = (AddCustomerCommand) parser.parseCommand(
+                PersonUtil.getAddCustomerCommand(customer));
         assertEquals(new AddCustomerCommand(customer), command);
     }
 
@@ -54,7 +55,8 @@ public class AddressBookParserTest {
     @Test
     public void parseCommand_addSupplier() throws Exception {
         Supplier supplier = new PersonBuilder().buildSupplier();
-        AddSupplierCommand command = (AddSupplierCommand) parser.parseCommand(PersonUtil.getAddSupplierCommand(supplier));
+        AddSupplierCommand command = (AddSupplierCommand) parser.parseCommand(
+                PersonUtil.getAddSupplierCommand(supplier));
         assertEquals(new AddSupplierCommand(supplier), command);
     }
 
