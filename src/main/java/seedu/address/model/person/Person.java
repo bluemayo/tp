@@ -22,9 +22,13 @@ public abstract class Person {
      * Represents the different categories of contacts that can exist in the address book.
      */
     public enum ContactType {
-        SUPPLIER,
+        CUSTOMER,
         STAFF,
-        CUSTOMER
+        SUPPLIER;
+
+        public String lowerCase() {
+            return this.toString().toLowerCase();
+        }
     }
 
     // Identity fields
