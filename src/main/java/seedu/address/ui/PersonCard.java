@@ -63,6 +63,7 @@ public class PersonCard extends UiPart<Region> {
         case CUSTOMER -> type.getStyleClass().add("type_customer");
         case STAFF -> type.getStyleClass().add("type_staff");
         case SUPPLIER -> type.getStyleClass().add("type_supplier");
+        default -> throw new IllegalStateException("Unexpected type: " + person.getDisplayType());
         }
 
         person.getTags().stream()
