@@ -171,7 +171,6 @@ class JsonAdaptedPerson {
         switch (type) {
             case CUSTOMER:
                 return new Customer(modelName, modelPhone, modelEmail, modelAddress, modelTags, modelNote);
-            // TODO: cases for staff and supplier
             case STAFF:
                 return new Staff(modelName, modelPhone, modelEmail, modelAddress, modelTags, modelShifts, modelNote);
             case SUPPLIER:
