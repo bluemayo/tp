@@ -125,7 +125,7 @@ public class AddCommandParser implements Parser<AddCommand> {
         Address address = ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get());
         List<Shift> shifts = ParserUtil.parseShifts(argMultimap.getAllValues(PREFIX_SHIFTS));
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
-        Note note = ParserUtil.parseNote(argMultimap.getValue(PREFIX_NOTE).get());
+        Note note = ParserUtil.parseNote(argMultimap.getValue(PREFIX_NOTE).orElse(""));
         Staff staff = new Staff(name, phone, email, address, tagList, shifts, note);
 
         return new AddStaffCommand(staff);
@@ -152,7 +152,7 @@ public class AddCommandParser implements Parser<AddCommand> {
         List<Items> items = ParserUtil.parseItems(argMultimap.getAllValues(PREFIX_ITEMS));
         List<Days> days = ParserUtil.parseDays(argMultimap.getAllValues(PREFIX_DAYS));
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
-        Note note = ParserUtil.parseNote(argMultimap.getValue(PREFIX_NOTE).get());
+        Note note = ParserUtil.parseNote(argMultimap.getValue(PREFIX_NOTE).orElse(""));
         Supplier supplier = new Supplier(name, phone, email, address, tagList, items, days, note);
 
         return new AddSupplierCommand(supplier);
