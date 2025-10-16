@@ -1,0 +1,28 @@
+package seedu.address.ui;
+
+import java.awt.*;
+
+import javafx.fxml.FXML;
+import seedu.address.model.person.Person;
+import seedu.address.model.person.supplier.Supplier;
+
+public class SupplierCard extends PersonCard {
+
+    private static final String FXML = "SupplierListCard.fxml";
+
+    @FXML
+    protected Label items;
+    @FXML
+    protected Label days;
+
+    /**
+     * Creates a {@code PersonCode} with the given {@code Person} and index to display.
+     */
+    public SupplierCard(Person person, int displayedIndex) {
+        super(person, displayedIndex, FXML);
+        System.out.println(person.getItems().toString());
+        type.getStyleClass().add("type_supplier");
+        items.setText(person.getItems().toString());
+        days.setText(person.getDays().toString());
+    }
+}

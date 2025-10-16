@@ -41,9 +41,16 @@ public class PersonListPanel extends UiPart<Region> {
                 setGraphic(null);
                 setText(null);
             } else {
-                setGraphic(new PersonCard(person, getIndex() + 1).getRoot());
+                PersonCard result;
+                int index = getIndex() + 1;
+                switch(person.getDisplayType()) {
+                    case CUSTOMER -> result = new CustomerCard(person, index);
+                    case STAFF -> result = new StaffCard(person, index);
+                    case SUPPLIER -> result = new SupplierCard(person, index);
+                    default -> throw new IllegalStateException("Unexpected type: " + person.getDisplayType());
+                }
+                setGraphic(result.getRoot());
             }
         }
     }
-
 }

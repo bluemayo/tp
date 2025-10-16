@@ -14,8 +14,6 @@ import seedu.address.model.person.Person;
  */
 public class PersonCard extends UiPart<Region> {
 
-    private static final String FXML = "PersonListCard.fxml";
-
     /**
      * Note: Certain keywords such as "location" and "resources" are reserved keywords in JavaFX.
      * As a consequence, UI elements' variable names cannot be set to such keywords
@@ -29,7 +27,7 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private HBox cardPane;
     @FXML
-    private Label type;
+    protected Label type;
     @FXML
     private Label name;
     @FXML
@@ -48,8 +46,8 @@ public class PersonCard extends UiPart<Region> {
     /**
      * Creates a {@code PersonCode} with the given {@code Person} and index to display.
      */
-    public PersonCard(Person person, int displayedIndex) {
-        super(FXML);
+    public PersonCard(Person person, int displayedIndex, String fxml) {
+        super(fxml);
         this.person = person;
         id.setText(displayedIndex + ". ");
         name.setText(person.getName().fullName);
@@ -58,13 +56,6 @@ public class PersonCard extends UiPart<Region> {
         email.setText(person.getEmail().value);
         type.setText(person.getDisplayType().toString());
         note.setText(person.getNote().value);
-
-        switch (person.getDisplayType()) {
-        case CUSTOMER -> type.getStyleClass().add("type_customer");
-        case STAFF -> type.getStyleClass().add("type_staff");
-        case SUPPLIER -> type.getStyleClass().add("type_supplier");
-        default -> throw new IllegalStateException("Unexpected type: " + person.getDisplayType());
-        }
 
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
