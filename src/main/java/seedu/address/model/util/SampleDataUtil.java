@@ -1,9 +1,15 @@
 package seedu.address.model.util;
 
+import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+
 import java.util.Arrays;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import seedu.address.logic.commands.AddCustomerCommand;
+import seedu.address.logic.parser.ParserUtil;
+import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.AddressBook;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.person.Address;
@@ -13,6 +19,9 @@ import seedu.address.model.person.Note;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.customer.Customer;
+import seedu.address.model.person.staff.Shift;
+import seedu.address.model.person.supplier.Days;
+import seedu.address.model.person.supplier.Items;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -59,4 +68,18 @@ public class SampleDataUtil {
                 .collect(Collectors.toSet());
     }
 
+    public static List<Shift> getShiftList(String ... strings) throws ParseException {
+        return ParserUtil.parseShifts(Arrays.stream(strings)
+                    .collect(Collectors.toList()));
+    }
+
+    public static List<Days> getDaysList(String ... strings) throws ParseException {
+        return ParserUtil.parseDays(Arrays.stream(strings)
+                .collect(Collectors.toList()));
+    }
+
+    public static List<Items> getItemsList(String ... strings) throws ParseException {
+        return ParserUtil.parseItems(Arrays.stream(strings)
+                .collect(Collectors.toList()));
+    }
 }

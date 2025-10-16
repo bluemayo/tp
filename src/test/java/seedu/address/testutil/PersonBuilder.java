@@ -1,8 +1,6 @@
 package seedu.address.testutil;
 
-import java.time.LocalDate;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import seedu.address.logic.commands.CommandTestUtil;
@@ -12,19 +10,13 @@ import seedu.address.model.person.Name;
 import seedu.address.model.person.Note;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
-import seedu.address.model.person.customer.Customer;
-import seedu.address.model.person.staff.Shift;
-import seedu.address.model.person.staff.Staff;
-import seedu.address.model.person.supplier.Days;
-import seedu.address.model.person.supplier.Items;
-import seedu.address.model.person.supplier.Supplier;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
 
 /**
  * A utility class to help with building Person objects.
  */
-public class PersonBuilder {
+public abstract class PersonBuilder {
 
     public static final String DEFAULT_NAME = CommandTestUtil.VALID_NAME_AMY;
     public static final String DEFAULT_PHONE = CommandTestUtil.VALID_PHONE_AMY;
@@ -34,19 +26,12 @@ public class PersonBuilder {
     public static final String DEFAULT_NOTE = CommandTestUtil.VALID_NOTE_AMY;
 
     // Default fields
-    private Name name;
-    private Phone phone;
-    private Email email;
-    private Address address;
-    private Set<Tag> tags;
-    private Note note;
-
-    // Fields for staff
-    private List<Shift> shifts;
-
-    // Fields for suppliers
-    private Days days;
-    private Items items;
+    protected Name name;
+    protected Phone phone;
+    protected Email email;
+    protected Address address;
+    protected Set<Tag> tags;
+    protected Note note;
 
     /**
      * Creates a {@code PersonBuilder} with the default details.
@@ -120,50 +105,5 @@ public class PersonBuilder {
         return this;
     }
 
-    /**
-     * Sets the {@code Shift} of the {@code Person} that we are building (for staff).
-     */
-    public PersonBuilder withShifts(List<Shift> shifts) {
-        // TODO
-        return this;
-    }
-
-    /**
-     * Sets the {@code Days} of the {@code Person} that we are building (for supplier).
-     */
-    public PersonBuilder withDays(LocalDate days) {
-        // TODO
-        return this;
-    }
-
-    /**
-     * Sets the {@code Items} of the {@code Person} that we are building (for supplier).
-     */
-    public PersonBuilder withItems(String items) {
-        // TODO
-        return this;
-    }
-
-    /**
-     * Builds a new {@code Customer} by taking in the relevant fields and outputting an object.
-     */
-    public Customer buildCustomer() {
-        return new Customer(name, phone, email, address, tags, note);
-    }
-
-    /**
-     * Builds a new {@code Staff} by taking in the relevant fields and outputting an object.
-     */
-    public Staff buildStaff() {
-        // TODO
-        return null;
-    }
-
-    /**
-     * Builds a new {@code Supplier} by taking in the relevant fields and outputting an object.
-     */
-    public Supplier buildSupplier() {
-        // TODO
-        return null;
-    }
+    public abstract Person build();
 }
