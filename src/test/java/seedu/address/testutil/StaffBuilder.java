@@ -10,17 +10,21 @@ import seedu.address.model.person.staff.Staff;
 import seedu.address.model.person.supplier.Supplier;
 import seedu.address.model.util.SampleDataUtil;
 
-public class StaffBuilder extends PersonBuilder {
-    public static final String DEFAULT_SHIFTS = CommandTestUtil.VALID_SHIFTS_AMY;
+public class StaffBuilder extends PersonBuilder<Staff> {
+    public static final String DEFAULT_SHIFTS = CommandTestUtil.VALID_SHIFTS_CARL;
 
     private List<Shift> shifts;
 
     /**
      * Creates a {@code StaffBuilder} with the default details.
      */
-    public StaffBuilder() throws ParseException {
+    public StaffBuilder() {
         super();
-        shifts = ParserUtil.parseShifts(List.of(DEFAULT_SHIFTS));
+        try {
+            shifts = ParserUtil.parseShifts(List.of(DEFAULT_SHIFTS));
+        } catch (ParseException e) {
+            // Fallthrough
+        }
     }
 
     /**
@@ -31,8 +35,14 @@ public class StaffBuilder extends PersonBuilder {
         shifts = staffToCopy.getShifts();
     }
 
-    public StaffBuilder withShifts(List<Shift> shifts) throws ParseException {
-        this.shifts = SampleDataUtil.getShiftList();
+    @Override
+    public StaffBuilder withShifts(String ... shifts) {
+        try {
+            this.shifts = SampleDataUtil.getShiftList();
+        } catch (ParseException e) {
+            // Fallthrough
+        }
+
         return this;
     }
 

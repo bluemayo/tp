@@ -2,7 +2,7 @@ package seedu.address.testutil;
 
 import seedu.address.model.person.customer.Customer;
 
-public class CustomerBuilder extends PersonBuilder {
+public class CustomerBuilder extends PersonBuilder<Customer> {
 
     /**
      * Creates a {@code CustomerBuilder} with the default details.
@@ -21,6 +21,7 @@ public class CustomerBuilder extends PersonBuilder {
     /**
      * Builds a new {@code Customer} by taking in the relevant fields and outputting an object.
      */
+    @Override
     public Customer build() {
         return new Customer(name, phone, email, address, tags, note);
     }
