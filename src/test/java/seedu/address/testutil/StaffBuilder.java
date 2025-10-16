@@ -1,5 +1,6 @@
 package seedu.address.testutil;
 
+import java.util.Arrays;
 import java.util.List;
 
 import seedu.address.logic.commands.CommandTestUtil;
@@ -36,15 +37,15 @@ public class StaffBuilder extends PersonBuilder<Staff> {
     }
 
     @Override
-    public StaffBuilder withShifts(String ... shifts) {
+    public StaffBuilder withShifts(String... shifts) {
         try {
-            this.shifts = SampleDataUtil.getShiftList();
+            this.shifts = ParserUtil.parseShifts(Arrays.asList(shifts));
         } catch (ParseException e) {
-            // Fallthrough
+            throw new IllegalArgumentException("Invalid shift format in StaffBuilder", e);
         }
-
         return this;
     }
+
 
     /**
      * Builds a new {@code Staff} by taking in the relevant fields and outputting an object.
