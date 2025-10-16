@@ -29,15 +29,15 @@ public class AddStaffCommand extends AddCommand {
             + PREFIX_EMAIL + "EMAIL "
             + PREFIX_ADDRESS + "ADDRESS "
             + PREFIX_SHIFTS + "SHIFT[, SHIFT,...] "
-            + "[" + PREFIX_NOTE + "NOTES]\n"
-            + "[" + PREFIX_TAG + "TAG]... "
+            + "[" + PREFIX_NOTE + "NOTES]"
+            + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_NAME + "Ah Hock "
             + PREFIX_PHONE + "98765432 "
             + PREFIX_EMAIL + "ahhock@example.com "
             + PREFIX_ADDRESS + "123 Clementi Ave 3 "
-            + PREFIX_SHIFTS + "2025-12-04 "
-            + PREFIX_NOTE + "can only do weekdays"
+            + PREFIX_SHIFTS + "2025-12-04, 2025-12-07 "
+            + PREFIX_NOTE + "can only do weekdays "
             + PREFIX_TAG + "preferred ";
 
     /**
