@@ -1,8 +1,7 @@
 package seedu.address.ui;
 
-import java.awt.*;
-
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import seedu.address.model.person.Person;
 
 public class StaffCard extends PersonCard {
