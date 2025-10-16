@@ -40,7 +40,7 @@ public class AddSupplierCommand extends AddCommand {
             + PREFIX_ITEMS + "Flour, Eggs "
             + PREFIX_DAYS + "2025-10-10, 2025-10-20 "
             + PREFIX_NOTE + "Halal supplier "
-            + PREFIX_TAG + "coffee-bean";
+            + PREFIX_TAG + "preferred";
 
     /**
      * Creates an {@code AddSupplierCommand} to add the specified {@link Supplier}.
