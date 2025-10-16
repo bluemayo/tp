@@ -121,7 +121,7 @@ public class AddCommandParserTest {
     @Test
     public void parse_optionalFieldsMissing_success() {
         // zero tags
-        Customer expectedCustomer = new CustomerBuilder(ALICE).withTags().build();
+        Customer expectedCustomer = new CustomerBuilder(AMY).withTags().build();
         assertParseSuccess(parser, CUSTOMER_COMMAND + NAME_DESC_AMY
                         + PHONE_DESC_AMY + EMAIL_DESC_AMY
                         + ADDRESS_DESC_AMY,
