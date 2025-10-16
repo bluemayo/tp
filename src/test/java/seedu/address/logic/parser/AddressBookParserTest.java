@@ -30,16 +30,14 @@ import seedu.address.model.person.Person;
 import seedu.address.model.person.customer.Customer;
 import seedu.address.model.person.staff.Staff;
 import seedu.address.model.person.supplier.Supplier;
-import seedu.address.testutil.EditPersonDescriptorBuilder;
-import seedu.address.testutil.PersonBuilder;
-import seedu.address.testutil.PersonUtil;
+import seedu.address.testutil.*;
 
 public class AddressBookParserTest {
 
     private final AddressBookParser parser = new AddressBookParser();
     @Test
     public void parseCommand_addCustomer() throws Exception {
-        Customer customer = new PersonBuilder().buildCustomer();
+        Customer customer = new CustomerBuilder().build();
         AddCustomerCommand command = (AddCustomerCommand) parser.parseCommand(
                 PersonUtil.getAddCustomerCommand(customer));
         assertEquals(new AddCustomerCommand(customer), command);
@@ -47,14 +45,14 @@ public class AddressBookParserTest {
 
     @Test
     public void parseCommand_addStaff() throws Exception {
-        Staff staff = new PersonBuilder().buildStaff();
+        Staff staff = new StaffBuilder().build();
         AddStaffCommand command = (AddStaffCommand) parser.parseCommand(PersonUtil.getAddStaffCommand(staff));
         assertEquals(new AddStaffCommand(staff), command);
     }
 
     @Test
     public void parseCommand_addSupplier() throws Exception {
-        Supplier supplier = new PersonBuilder().buildSupplier();
+        Supplier supplier = new SupplierBuilder().build();
         AddSupplierCommand command = (AddSupplierCommand) parser.parseCommand(
                 PersonUtil.getAddSupplierCommand(supplier));
         assertEquals(new AddSupplierCommand(supplier), command);
@@ -75,7 +73,7 @@ public class AddressBookParserTest {
 
     @Test
     public void parseCommand_edit() throws Exception {
-        Person person = new PersonBuilder().buildCustomer();
+        Person person = new CustomerBuilder().build();
         EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder(person).build();
         EditCommand command = (EditCommand) parser.parseCommand(EditCommand.COMMAND_WORD + " "
                 + INDEX_FIRST_PERSON.getOneBased() + " " + PersonUtil.getEditPersonDescriptorDetails(descriptor));

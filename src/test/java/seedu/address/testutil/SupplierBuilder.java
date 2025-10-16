@@ -11,9 +11,9 @@ import seedu.address.model.person.supplier.Items;
 import seedu.address.model.person.supplier.Supplier;
 import seedu.address.model.util.SampleDataUtil;
 
-public class SupplierBuilder extends PersonBuilder {
-    public static final String DEFAULT_ITEMS = CommandTestUtil.VALID_ITEMS_AMY;
-    public static final String DEFAULT_DAYS = CommandTestUtil.VALID_DAYS_AMY;
+public class SupplierBuilder extends PersonBuilder<Supplier> {
+    public static final String DEFAULT_ITEMS = CommandTestUtil.VALID_ITEMS_ELLE;
+    public static final String DEFAULT_DAYS = CommandTestUtil.VALID_DAYS_ELLE;
 
     private List<Items> items;
     private List<Days> days;
@@ -21,10 +21,14 @@ public class SupplierBuilder extends PersonBuilder {
     /**
      * Creates a {@code SupplierBuilder} with the default details.
      */
-    public SupplierBuilder() throws ParseException {
+    public SupplierBuilder() {
         super();
-        days = ParserUtil.parseDays(List.of(DEFAULT_DAYS));
-        items = ParserUtil.parseItems(List.of(DEFAULT_ITEMS));
+        try {
+            days = ParserUtil.parseDays(List.of(DEFAULT_DAYS));
+            items = ParserUtil.parseItems(List.of(DEFAULT_ITEMS));
+        } catch (ParseException e) {
+            // Fallthrough
+        }
     }
 
     /**
@@ -36,13 +40,25 @@ public class SupplierBuilder extends PersonBuilder {
         items = supplierToCopy.getItems();
     }
 
-    public SupplierBuilder withDays(List<Days> days) throws ParseException {
-        this.days = SampleDataUtil.getDaysList();
+    @Override
+    public SupplierBuilder withDays(String ... days) {
+        try {
+            this.days = SampleDataUtil.getDaysList();
+        } catch (ParseException e) {
+            // Fallthrough
+        }
+
         return this;
     }
 
-    public SupplierBuilder withItems(List<Items> items) throws ParseException {
-        this.items = SampleDataUtil.getItemsList();
+    @Override
+    public SupplierBuilder withItems(String ... items) {
+        try {
+            this.items = SampleDataUtil.getItemsList();
+        } catch (ParseException e) {
+            // Fallthrough
+        }
+
         return this;
     }
 

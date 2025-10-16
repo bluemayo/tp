@@ -1,9 +1,11 @@
 package seedu.address.testutil;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import seedu.address.logic.commands.CommandTestUtil;
+import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
@@ -16,7 +18,7 @@ import seedu.address.model.util.SampleDataUtil;
 /**
  * A utility class to help with building Person objects.
  */
-public abstract class PersonBuilder {
+public abstract class PersonBuilder<T extends Person> {
 
     public static final String DEFAULT_NAME = CommandTestUtil.VALID_NAME_AMY;
     public static final String DEFAULT_PHONE = CommandTestUtil.VALID_PHONE_AMY;
@@ -48,7 +50,7 @@ public abstract class PersonBuilder {
     /**
      * Initializes the PersonBuilder with the data of {@code personToCopy}.
      */
-    public PersonBuilder(Person personToCopy) {
+    public PersonBuilder(T personToCopy) {
         name = personToCopy.getName();
         phone = personToCopy.getPhone();
         email = personToCopy.getEmail();
@@ -60,7 +62,7 @@ public abstract class PersonBuilder {
     /**
      * Sets the {@code Name} of the {@code Person} that we are building.
      */
-    public PersonBuilder withName(String name) {
+    public PersonBuilder<T> withName(String name) {
         this.name = new Name(name);
         return this;
     }
@@ -68,7 +70,7 @@ public abstract class PersonBuilder {
     /**
      * Parses the {@code tags} into a {@code Set<Tag>} and set it to the {@code Person} that we are building.
      */
-    public PersonBuilder withTags(String ... tags) {
+    public PersonBuilder<T> withTags(String ... tags) {
         this.tags = SampleDataUtil.getTagSet(tags);
         return this;
     }
@@ -76,7 +78,7 @@ public abstract class PersonBuilder {
     /**
      * Sets the {@code Address} of the {@code Person} that we are building.
      */
-    public PersonBuilder withAddress(String address) {
+    public PersonBuilder<T> withAddress(String address) {
         this.address = new Address(address);
         return this;
     }
@@ -84,7 +86,7 @@ public abstract class PersonBuilder {
     /**
      * Sets the {@code Phone} of the {@code Person} that we are building.
      */
-    public PersonBuilder withPhone(String phone) {
+    public PersonBuilder<T> withPhone(String phone) {
         this.phone = new Phone(phone);
         return this;
     }
@@ -92,7 +94,7 @@ public abstract class PersonBuilder {
     /**
      * Sets the {@code Email} of the {@code Person} that we are building.
      */
-    public PersonBuilder withEmail(String email) {
+    public PersonBuilder<T> withEmail(String email) {
         this.email = new Email(email);
         return this;
     }
@@ -100,10 +102,16 @@ public abstract class PersonBuilder {
     /**
      * Sets the {@code Note} of the {@code Person} that we are building.
      */
-    public PersonBuilder withNote(String note) {
+    public PersonBuilder<T> withNote(String note) {
         this.note = new Note(note);
         return this;
     }
 
-    public abstract Person build();
+    public abstract  T build();
+
+    public PersonBuilder<T> withShifts(String ... shifts) { return this; }
+
+    public PersonBuilder<T> withItems(String ... items) { return this; }
+
+    public PersonBuilder<T> withDays(String ... days) { return this; }
 }

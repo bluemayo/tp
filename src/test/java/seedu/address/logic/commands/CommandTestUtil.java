@@ -37,9 +37,6 @@ public class CommandTestUtil {
     public static final String VALID_TAG_AMY = "frequentCustomer";
     public static final String VALID_TAG_AMY_2 = "prefersDelivery";
     public static final String VALID_NOTE_AMY = "allergic to nuts";
-    public static final String VALID_SHIFTS_AMY = "2025-10-10";
-    public static final String VALID_ITEMS_AMY = "egg, milk";
-    public static final String VALID_DAYS_AMY = "2025-10-10";
     public static final String NAME_DESC_AMY = " " + PREFIX_NAME + VALID_NAME_AMY;
     public static final String PHONE_DESC_AMY = " " + PREFIX_PHONE + VALID_PHONE_AMY;
     public static final String EMAIL_DESC_AMY = " " + PREFIX_EMAIL + VALID_EMAIL_AMY;
@@ -47,9 +44,6 @@ public class CommandTestUtil {
     public static final String TAG_DESC_AMY = " " + PREFIX_TAG + VALID_TAG_AMY;
     public static final String TAG_DESC_AMY_2 = " " + PREFIX_TAG + VALID_TAG_AMY_2;
     public static final String NOTE_DESC_AMY = " " + PREFIX_NOTE + VALID_NOTE_AMY;
-    public static final String SHIFTS_DESC_AMY = " " + PREFIX_SHIFTS + VALID_SHIFTS_AMY;
-    public static final String ITEMS_DESC_AMY = " " + PREFIX_ITEMS + VALID_ITEMS_AMY;
-    public static final String DAYS_DESC_AMY = " " + PREFIX_DAYS + VALID_DAYS_AMY;
 
     public static final String INVALID_NAME_DESC = " " + PREFIX_NAME + "James&"; // '&' not allowed in names
     public static final String INVALID_PHONE_DESC = " " + PREFIX_PHONE + "911a"; // 'a' not allowed in phones
@@ -62,6 +56,43 @@ public class CommandTestUtil {
 
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
+
+    public static final String VALID_NAME_CARL = "Carl Kurz";
+    public static final String VALID_PHONE_CARL = "95352563";
+    public static final String VALID_EMAIL_CARL = "heinz@example.com";
+    public static final String VALID_ADDRESS_CARL = "wall street";
+    public static final String VALID_TAG_CARL = "bestStaff";
+    public static final String VALID_TAG_CARL_2 = "morning";
+    public static final String VALID_NOTE_CARL = "allergic to work";
+    public static final String VALID_SHIFTS_CARL = "2025-10-10";
+    public static final String NAME_DESC_CARL = " " + PREFIX_NAME + VALID_NAME_CARL;
+    public static final String PHONE_DESC_CARL = " " + PREFIX_PHONE + VALID_PHONE_CARL;
+    public static final String EMAIL_DESC_CARL = " " + PREFIX_EMAIL + VALID_EMAIL_CARL;
+    public static final String ADDRESS_DESC_CARL = " " + PREFIX_ADDRESS + VALID_ADDRESS_CARL;
+    public static final String TAG_DESC_CARL = " " + PREFIX_TAG + VALID_TAG_CARL;
+    public static final String TAG_DESC_CARL_2 = " " + PREFIX_TAG + VALID_TAG_CARL_2;
+    public static final String NOTE_DESC_CARL = " " + PREFIX_NOTE + VALID_NOTE_CARL;
+    public static final String SHIFTS_DESC_CARL = " " + PREFIX_SHIFTS + VALID_SHIFTS_CARL;
+
+
+    public static final String VALID_NAME_ELLE = "Elle Meyer";
+    public static final String VALID_PHONE_ELLE = "9482224";
+    public static final String VALID_EMAIL_ELLE = "werner@example.com";
+    public static final String VALID_ADDRESS_ELLE = "michegan ave";
+    public static final String VALID_TAG_ELLE = "cheapest";
+    public static final String VALID_TAG_ELLE_2 = "fastDelivery";
+    public static final String VALID_NOTE_ELLE = "one dollar per gallon";
+    public static final String VALID_ITEMS_ELLE = "egg, milk";
+    public static final String VALID_DAYS_ELLE = "2025-10-10";
+    public static final String NAME_DESC_ELLE = " " + PREFIX_NAME + VALID_NAME_ELLE;
+    public static final String PHONE_DESC_ELLE = " " + PREFIX_PHONE + VALID_PHONE_ELLE;
+    public static final String EMAIL_DESC_ELLE = " " + PREFIX_EMAIL + VALID_EMAIL_ELLE;
+    public static final String ADDRESS_DESC_ELLE = " " + PREFIX_ADDRESS + VALID_ADDRESS_ELLE;
+    public static final String TAG_DESC_ELLE = " " + PREFIX_TAG + VALID_TAG_ELLE;
+    public static final String TAG_DESC_ELLE_2 = " " + PREFIX_TAG + VALID_TAG_ELLE_2;
+    public static final String NOTE_DESC_ELLE = " " + PREFIX_NOTE + VALID_NOTE_ELLE;
+    public static final String ITEMS_DESC_ELLE = " " + PREFIX_ITEMS + VALID_ITEMS_ELLE;
+    public static final String DAYS_DESC_ELLE = " " + PREFIX_DAYS + VALID_DAYS_ELLE;
 
     public static final EditCommand.EditPersonDescriptor DESC_AMY;
 

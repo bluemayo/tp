@@ -3,100 +3,94 @@ package seedu.address.model.person;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.*;
 import static seedu.address.testutil.Assert.assertThrows;
-import static seedu.address.testutil.TypicalPersons.ALICE;
-import static seedu.address.testutil.TypicalPersons.BOB;
+import static seedu.address.testutil.TypicalPersons.AMY;
 
 import org.junit.jupiter.api.Test;
 
 import seedu.address.model.person.customer.Customer;
-import seedu.address.testutil.PersonBuilder;
+import seedu.address.testutil.CustomerBuilder;
 
 public class PersonTest {
 
     @Test
     public void asObservableList_modifyList_throwsUnsupportedOperationException() {
-        Person person = new PersonBuilder().buildCustomer();
+        Customer person = new CustomerBuilder().build();
         assertThrows(UnsupportedOperationException.class, () -> person.getTags().remove(0));
     }
 
     @Test
     public void isSamePerson() {
         // same object -> returns true
-        assertTrue(ALICE.isSamePerson(ALICE));
+        assertTrue(AMY.isSamePerson(AMY));
 
         // null -> returns false
-        assertFalse(ALICE.isSamePerson(null));
+        assertFalse(AMY.isSamePerson(null));
 
         // same name, all other attributes different -> returns true
-        Person editedAlice = new PersonBuilder(ALICE).withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB)
-                .withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_BOB).buildCustomer();
-        assertTrue(ALICE.isSamePerson(editedAlice));
+        Customer editedAmy = new CustomerBuilder(AMY).withPhone(VALID_PHONE_CARL).withEmail(VALID_EMAIL_CARL)
+                .withAddress(VALID_ADDRESS_CARL).withTags(VALID_TAG_CARL).build();
+        assertTrue(AMY.isSamePerson(editedAmy));
 
         // different name, all other attributes same -> returns false
-        editedAlice = new PersonBuilder(ALICE).withName(VALID_NAME_BOB).buildCustomer();
-        assertFalse(ALICE.isSamePerson(editedAlice));
+        editedAmy = new CustomerBuilder(AMY).withName(VALID_NAME_CARL).build();
+        assertFalse(AMY.isSamePerson(editedAmy));
 
         // name differs in case, all other attributes same -> returns false
-        Person editedBob = new PersonBuilder(BOB).withName(VALID_NAME_BOB.toLowerCase()).buildCustomer();
-        assertFalse(BOB.isSamePerson(editedBob));
+        editedAmy = new CustomerBuilder(AMY).withName(VALID_NAME_AMY.toLowerCase()).build();
+        assertFalse(AMY.isSamePerson(editedAmy));
 
         // name has trailing spaces, all other attributes same -> returns false
-        String nameWithTrailingSpaces = VALID_NAME_BOB + " ";
-        editedBob = new PersonBuilder(BOB).withName(nameWithTrailingSpaces).buildCustomer();
-        assertFalse(BOB.isSamePerson(editedBob));
+        String nameWithTrailingSpaces = VALID_NAME_AMY + " ";
+        editedAmy = new CustomerBuilder(AMY).withName(nameWithTrailingSpaces).build();
+        assertFalse(AMY.isSamePerson(editedAmy));
     }
 
     @Test
     public void equals() {
         // same values -> returns true
-        Person aliceCopy = new PersonBuilder(ALICE).buildCustomer();
-        assertTrue(ALICE.equals(aliceCopy));
+        Person amyCopy = new CustomerBuilder(AMY).build();
+        assertTrue(AMY.equals(amyCopy));
 
         // same object -> returns true
-        assertTrue(ALICE.equals(ALICE));
+        assertTrue(AMY.equals(AMY));
 
         // null -> returns false
-        assertFalse(ALICE.equals(null));
+        assertFalse(AMY.equals(null));
 
         // different type -> returns false
-        assertFalse(ALICE.equals(5));
+        assertFalse(AMY.equals(5));
 
         // different person -> returns false
-        assertFalse(ALICE.equals(BOB));
+        assertFalse(AMY.equals(AMY));
 
         // different name -> returns false
-        Person editedAlice = new PersonBuilder(ALICE).withName(VALID_NAME_BOB).buildCustomer();
-        assertFalse(ALICE.equals(editedAlice));
+        Customer editedAmy = new CustomerBuilder(AMY).withName(VALID_NAME_CARL).build();
+        assertFalse(AMY.equals(editedAmy));
 
         // different phone -> returns false
-        editedAlice = new PersonBuilder(ALICE).withPhone(VALID_PHONE_BOB).buildCustomer();
-        assertFalse(ALICE.equals(editedAlice));
+        editedAmy = new CustomerBuilder(AMY).withPhone(VALID_PHONE_CARL).build();
+        assertFalse(AMY.equals(editedAmy));
 
         // different email -> returns false
-        editedAlice = new PersonBuilder(ALICE).withEmail(VALID_EMAIL_BOB).buildCustomer();
-        assertFalse(ALICE.equals(editedAlice));
+        editedAmy = new CustomerBuilder(AMY).withEmail(VALID_EMAIL_CARL).build();
+        assertFalse(AMY.equals(editedAmy));
 
         // different address -> returns false
-        editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).buildCustomer();
-        assertFalse(ALICE.equals(editedAlice));
+        editedAmy = new CustomerBuilder(AMY).withAddress(VALID_ADDRESS_CARL).build();
+        assertFalse(AMY.equals(editedAmy));
 
         // different tags -> returns false
-        editedAlice = new PersonBuilder(ALICE).withTags(VALID_TAG_AMY).buildCustomer();
-        assertFalse(ALICE.equals(editedAlice));
+        editedAmy = new CustomerBuilder(AMY).withTags(VALID_TAG_CARL).build();
+        assertFalse(AMY.equals(editedAmy));
     }
 
     @Test
     public void toStringMethod() {
-        String expected = Customer.class.getCanonicalName() + "{name=" + ALICE.getName() + ", phone=" + ALICE.getPhone()
-                + ", email=" + ALICE.getEmail() + ", address=" + ALICE.getAddress() + ", tags=" + ALICE.getTags()
-                + ", note=" + ALICE.getNote() + "}";
-        assertEquals(expected, ALICE.toString());
+        String expected = Customer.class.getCanonicalName() + "{name=" + AMY.getName() + ", phone=" + AMY.getPhone()
+                + ", email=" + AMY.getEmail() + ", address=" + AMY.getAddress() + ", tags=" + AMY.getTags()
+                + ", note=" + AMY.getNote() + "}";
+        assertEquals(expected, AMY.toString());
     }
 }
