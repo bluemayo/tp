@@ -48,6 +48,8 @@ import seedu.address.testutil.PersonBuilder;
 
 public class AddCommandParserTest {
     private static final String CUSTOMER_COMMAND = Person.ContactType.CUSTOMER.lowerCase() + " ";
+    private static final String STAFF_COMMAND = Person.ContactType.STAFF.lowerCase() + " ";
+    private static final String SUPPLIER_COMMAND = Person.ContactType.SUPPLIER.lowerCase() + " ";
     private AddCommandParser parser = new AddCommandParser();
 
     // Test cases for Customer
@@ -55,9 +57,8 @@ public class AddCommandParserTest {
     public void parse_allFieldsPresent_success() {
         Customer expectedCustomer = new PersonBuilder(AMY).withTags(VALID_TAG_AMY)
                 .buildCustomer();
+        Staff expectedStaff = new PersonBuilder(AMY).withShifts()
 
-        // whitespace only preamble
-        // TODO add note here
         assertParseSuccess(parser, CUSTOMER_COMMAND + PREAMBLE_WHITESPACE + NAME_DESC_AMY + PHONE_DESC_AMY
                 + EMAIL_DESC_AMY + ADDRESS_DESC_AMY + TAG_DESC_AMY,
                 new AddCustomerCommand(expectedCustomer));

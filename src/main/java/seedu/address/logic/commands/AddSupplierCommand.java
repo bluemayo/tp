@@ -30,16 +30,17 @@ public class AddSupplierCommand extends AddCommand {
             + PREFIX_ADDRESS + "ADDRESS "
             + PREFIX_ITEMS + "ITEM[,ITEM,...] "
             + PREFIX_DAYS + "DAY[,DAY,...] "
-            + "[" + PREFIX_NOTE + "NOTES]\n"
+            + "[" + PREFIX_NOTE + "NOTES] "
+            + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_NAME + "John Doe "
             + PREFIX_PHONE + "98765432 "
             + PREFIX_EMAIL + "ahhock@example.com "
             + PREFIX_ADDRESS + "123 Clementi Ave 3 "
             + PREFIX_ITEMS + "Flour, Eggs "
-            + PREFIX_DAYS + "2025-10-10 "
+            + PREFIX_DAYS + "2025-10-10, 2025-10-20 "
             + PREFIX_NOTE + "Halal supplier "
-            + PREFIX_TAG + "Coffee bean supplier";
+            + PREFIX_TAG + "coffee-bean";
 
     /**
      * Creates an {@code AddSupplierCommand} to add the specified {@link Supplier}.
